@@ -9,24 +9,24 @@ mageenta #D63384 */
 
 :root {
   /* Background shades (darkest to lightest) */
-  --color-bg-primary:    #0D0D0D;
-  --color-bg-secondary:  #1A1A1A;
-  --color-bg-tertiary:   #2A2A2A;
+  --color-bg-primary:    #3B2A26;
+  --color-bg-secondary:  #3B2A26;
+  --color-bg-tertiary:   #3B2A26;
 
   /* Text shades */
   --color-text-primary:  #F5F0E8;
   --color-text-muted:    #6B6559;
 
   /* Accent colors */
-  --color-accent:        #C8A84B;
+  --color-accent:        #D63384;
   --color-accent-dark:   #A88A30;
-  --color-danger:        #B33A2A;
+  --color-danger:        #BFE4F9;
 
   /* Border color */
   --color-border:        #3A3A3A;
 
   /* Category tag colors */
-  --color-tag-film-bg:   rgba(200, 168, 75,  0.15);
+  --color-tag-film-bg:   #bfe4f973;
   --color-tag-film-text: #C8A84B;
   --color-tag-film-border: rgba(200, 168, 75, 0.3);
 

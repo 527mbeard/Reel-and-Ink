@@ -23,7 +23,7 @@ const articles = [
     id: 0, cat: 'film', rating: 5,
     worktitle: 'Conclave', creator: 'Edward Berger', year: '2024',
     reviewtitle: 'God is in the Doubt',
-    subtitle: 'Berger's papal thriller is the most gripping film about institutional power in years.',
+    subtitle: `Berger's papal thriller is the most gripping film about institutional power in years.`,
     excerpt: 'Conclave works on every level it attempts. As a thriller, it is gripping; as a meditation on faith, it is searching; as a portrait of institutional rot, it is unsparing.',
     body: `<p>Conclave works on every level it attempts. As a thriller, it is gripping; as a meditation on faith, it is searching; as a portrait of institutional rot, it is unsparing. Edward Berger proves himself a director who understands that the most dramatic spaces are rooms where old men argue quietly.</p>
            <p>Ralph Fiennes, playing Cardinal Lawrence, the dean tasked with overseeing the election of a new pope, gives what might be the performance of his career. His face is a weather system — clouds and clearings, sudden dark fronts. He is a man who no longer believes and cannot stop believing.</p>
@@ -36,7 +36,7 @@ const articles = [
     id: 1, cat: 'book', rating: 5,
     worktitle: 'James', creator: 'Percival Everett', year: '2024',
     reviewtitle: 'The Slave Who Sees Everything',
-    subtitle: 'Everett\'s reimagining of Huckleberry Finn is a masterpiece of controlled fury.',
+    subtitle: `Everett's reimagining of Huckleberry Finn is a masterpiece of controlled fury.`,
     excerpt: 'James does not ask you to enjoy it. It asks you to reckon. Percival Everett takes one of American literature\'s most beloved adventures and recenters it on the enslaved man at its margins.',
     body: `<p>James does not ask you to enjoy it. It asks you to reckon. Percival Everett takes one of American literature's most beloved adventures and recenters it on the enslaved man at its margins, producing a novel that feels both ancient and urgently contemporary.</p>
            <p>The central conceit — that enslaved people speak a sophisticated internal language, performing ignorance for their enslavers — is devastating and brilliant. Jim, now James, is not the comic relief of Twain's original. He is watching. He has always been watching.</p>
