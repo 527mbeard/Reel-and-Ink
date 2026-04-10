@@ -1,517 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reel & Ink — Reviews Worth Reading</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reel & Ink — Reviews Worth Reading</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo" onclick="showView('home')">Reel <span>&</span> Ink</div>
-    <ul class="nav-links">
-      <li><a href="#" class="active" onclick="filterCat('all',this)">All</a></li>
-      <li><a href="#" onclick="filterCat('film',this)">Film</a></li>
-      <li><a href="#" onclick="filterCat('book',this)">Books</a></li>
-      <li><a href="#" onclick="filterCat('tv',this)">TV</a></li>
-    </ul>
-    <div class="nav-right">
-      <button class="btn-write" onclick="showView('write')">+ Write a Review</button>
-    </div>
-  </nav>
-
-  <!-- TICKER -->
-  <div class="ticker">
-    <div class="ticker-track" id="tickerTrack">
-      <span class="ticker-item">Now Reading: Intermezzo — Sally Rooney</span>
-      <span class="ticker-item">★★★★★</span>
-      <span class="ticker-item">Now Watching: Severance S2</span>
-      <span class="ticker-item">★★★★☆</span>
-      <span class="ticker-item">Now Viewing: Conclave</span>
-      <span class="ticker-item">★★★★½</span>
-      <span class="ticker-item">Now Reading: James — Percival Everett</span>
-      <span class="ticker-item">★★★★★</span>
-      <span class="ticker-item">Now Watching: The Bear S3</span>
-      <span class="ticker-item">★★★★☆</span>
-      <span class="ticker-item">Now Reading: Intermezzo — Sally Rooney</span>
-      <span class="ticker-item">★★★★★</span>
-      <span class="ticker-item">Now Watching: Severance S2</span>
-      <span class="ticker-item">★★★★☆</span>
-      <span class="ticker-item">Now Viewing: Conclave</span>
-      <span class="ticker-item">★★★★½</span>
-      <span class="ticker-item">Now Reading: James — Percival Everett</span>
-      <span class="ticker-item">★★★★★</span>
-      <span class="ticker-item">Now Watching: The Bear S3</span>
-      <span class="ticker-item">★★★★☆</span>
-    </div>
+<!-- ============================================================
+     NAVIGATION
+     To rename the site: change "Reel" and "Ink" below
+     ============================================================ -->
+<nav class="nav">
+  <div class="nav__logo" onclick="showView('home')">
+    Reel <span class="nav__logo-ampersand">&</span> Ink
   </div>
 
-  <!-- ===== HOME VIEW ===== -->
-  <div class="view active" id="view-home">
+  <ul class="nav__links">
+    <li><a class="nav__link active" href="#" onclick="filterCat('all', this)">All</a></li>
+    <li><a class="nav__link" href="#" onclick="filterCat('film', this)">Film</a></li>
+    <li><a class="nav__link" href="#" onclick="filterCat('book', this)">Books</a></li>
+    <li><a class="nav__link" href="#" onclick="filterCat('tv', this)">TV</a></li>
+  </ul>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-left">
-        <p class="hero-eyebrow">The critic's corner</p>
-        <h1 class="hero-title">Stories that<br>move us. <em>Reviewed.</em></h1>
-        <p class="hero-desc">Thoughtful criticism and personal essays on film, literature, and television. No
-          algorithms. No star ratings inflation. Just honest writing about art.</p>
-        <div class="hero-cats">
-          <span class="cat-pill active" onclick="filterCat('all',this)">All Reviews</span>
-          <span class="cat-pill" onclick="filterCat('film',this)">🎬 Film</span>
-          <span class="cat-pill" onclick="filterCat('book',this)">📚 Books</span>
-          <span class="cat-pill" onclick="filterCat('tv',this)">📺 Television</span>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-featured-card" onclick="openArticle(0)">
-          <div class="hfc-img">
-            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-              <circle cx="60" cy="60" r="50" stroke="#C8A84B" stroke-width="2" />
-              <polygon points="45,35 90,60 45,85" fill="#C8A84B" />
-            </svg>
-            <div class="hfc-badge">Editor's Pick</div>
-          </div>
-          <div>
-            <span class="hfc-tag tag-film">Film</span>
-            <div class="hfc-stars">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
-                class="star">★</span><span class="star">★</span>
-            </div>
-            <h3 class="hfc-title">Conclave</h3>
-            <p class="hfc-meta">Edward Berger · 2024 · Drama / Thriller</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MAIN -->
-    <div class="main-layout">
-      <div class="feed">
-        <!-- Filter bar -->
-        <div class="filter-bar">
-          <span class="filter-label">Filter:</span>
-          <button class="filter-btn active" onclick="filterCat('all',this)">All</button>
-          <button class="filter-btn" onclick="filterCat('film',this)">Film</button>
-          <button class="filter-btn" onclick="filterCat('book',this)">Books</button>
-          <button class="filter-btn" onclick="filterCat('tv',this)">TV</button>
-          <div class="filter-sep"></div>
-          <span class="filter-label">Sort:</span>
-          <select class="sort-select" onchange="sortArticles(this.value)">
-            <option value="newest">Newest first</option>
-            <option value="rating">Highest rated</option>
-            <option value="oldest">Oldest first</option>
-          </select>
-        </div>
-
-        <!-- Article list -->
-        <div class="article-list" id="articleList"></div>
-      </div>
-
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="sidebar-section">
-          <div class="sidebar-heading">Most Read</div>
-          <div id="sidebarMostRead"></div>
-        </div>
-        <div class="sidebar-section">
-          <div class="sidebar-heading">Browse by Category</div>
-          <div class="category-block" onclick="filterCat('film',null)">
-            <span class="cb-name" style="color:#C8A84B">🎬 Film</span>
-            <span class="cb-count" id="countFilm">0 reviews</span>
-          </div>
-          <div class="category-block" onclick="filterCat('book',null)">
-            <span class="cb-name" style="color:#7ABB8A">📚 Books</span>
-            <span class="cb-count" id="countBook">0 reviews</span>
-          </div>
-          <div class="category-block" onclick="filterCat('tv',null)">
-            <span class="cb-name" style="color:#8A9ABB">📺 Television</span>
-            <span class="cb-count" id="countTv">0 reviews</span>
-          </div>
-        </div>
-        <div class="sidebar-section">
-          <div class="sidebar-heading">About</div>
-          <p style="font-size:0.82rem;color:var(--muted);line-height:1.8;">Reel & Ink is a space for considered,
-            opinionated criticism. Everyone has a take. Here, we back ours up with 800 words.</p>
-          <br>
-          <button class="btn-write" style="width:100%;padding:0.75rem;" onclick="showView('write')">Write a Review
-            →</button>
-        </div>
-      </aside>
-    </div>
+  <div class="nav__actions">
+    <button class="btn-primary" onclick="showView('write')">+ Write a Review</button>
   </div>
+</nav>
 
-  <!-- ===== WRITE VIEW ===== -->
-  <div class="view" id="view-write">
-    <div class="write-view">
-      <div class="write-header">
-        <h2 class="write-heading">Write a Review</h2>
-        <p class="write-sub">Share your take. Be honest. Be specific. Make it worth reading.</p>
-      </div>
 
-      <div class="form-grid">
-        <div class="form-row">
-          <label class="form-label">Category *</label>
-          <select class="form-select form-input" id="f-category">
-            <option value="">— Select type —</option>
-            <option value="film">🎬 Film</option>
-            <option value="book">📚 Book</option>
-            <option value="tv">📺 TV Show</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label class="form-label">Your Rating *</label>
-          <div class="star-rating" id="starRating">
-            <button class="star-btn" data-val="1" onclick="setRating(1)">★</button>
-            <button class="star-btn" data-val="2" onclick="setRating(2)">★</button>
-            <button class="star-btn" data-val="3" onclick="setRating(3)">★</button>
-            <button class="star-btn" data-val="4" onclick="setRating(4)">★</button>
-            <button class="star-btn" data-val="5" onclick="setRating(5)">★</button>
-          </div>
-          <p class="form-hint" id="ratingLabel">Click to rate</p>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <label class="form-label">Title (of the work) *</label>
-        <input class="form-input" id="f-worktitle" type="text"
-          placeholder="e.g. The Substance, James, Severance Season 2">
-      </div>
-
-      <div class="form-grid">
-        <div class="form-row">
-          <label class="form-label">Director / Author / Creator</label>
-          <input class="form-input" id="f-creator" type="text" placeholder="e.g. Coralie Fargeat">
-        </div>
-        <div class="form-row">
-          <label class="form-label">Year</label>
-          <input class="form-input" id="f-year" type="text" placeholder="e.g. 2024">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <label class="form-label">Your Review Title *</label>
-        <input class="form-input" id="f-reviewtitle" type="text"
-          placeholder="A compelling, specific headline for your review">
-      </div>
-
-      <div class="form-row">
-        <label class="form-label">Subtitle / Deck (optional)</label>
-        <input class="form-input" id="f-subtitle" type="text"
-          placeholder="A supporting line — poetic, witty, or clarifying">
-      </div>
-
-      <div class="form-row">
-        <label class="form-label">Your Review *</label>
-        <textarea class="form-textarea" id="f-body"
-          placeholder="Write your review here. Aim for at least 200 words. Quote the work. Make an argument."
-          oninput="updateCharCount()"></textarea>
-        <p class="char-count" id="charCount">0 characters</p>
-      </div>
-
-      <div class="form-grid">
-        <div class="form-row">
-          <label class="form-label">Your Name *</label>
-          <input class="form-input" id="f-author" type="text" placeholder="How you'd like to be credited">
-        </div>
-        <div class="form-row">
-          <label class="form-label">Verdict (one sentence)</label>
-          <input class="form-input" id="f-verdict" type="text" placeholder="Your sharpest bottom-line take">
-        </div>
-      </div>
-
-      <div>
-        <button class="btn-submit-review" onclick="submitReview()">Publish Review →</button>
-        <button class="btn-cancel" onclick="showView('home')">Cancel</button>
-      </div>
-    </div>
+<!-- ============================================================
+     TICKER
+     Add or remove .ticker__item spans to change the text
+     ============================================================ -->
+<div class="ticker">
+  <div class="ticker__track">
+    <span class="ticker__item">Now Reading: Intermezzo — Sally Rooney</span>
+    <span class="ticker__item">★★★★★</span>
+    <span class="ticker__item">Now Watching: Severance S2</span>
+    <span class="ticker__item">★★★★☆</span>
+    <span class="ticker__item">Now Viewing: Conclave</span>
+    <span class="ticker__item">★★★★½</span>
+    <span class="ticker__item">Now Reading: James — Percival Everett</span>
+    <span class="ticker__item">★★★★★</span>
+    <span class="ticker__item">Now Watching: The Bear S3</span>
+    <span class="ticker__item">★★★★☆</span>
+    <!-- Duplicate items below keep the scroll seamless -->
+    <span class="ticker__item">Now Reading: Intermezzo — Sally Rooney</span>
+    <span class="ticker__item">★★★★★</span>
+    <span class="ticker__item">Now Watching: Severance S2</span>
+    <span class="ticker__item">★★★★☆</span>
+    <span class="ticker__item">Now Viewing: Conclave</span>
+    <span class="ticker__item">★★★★½</span>
+    <span class="ticker__item">Now Reading: James — Percival Everett</span>
+    <span class="ticker__item">★★★★★</span>
+    <span class="ticker__item">Now Watching: The Bear S3</span>
+    <span class="ticker__item">★★★★☆</span>
   </div>
+</div>
 
-  <!-- ===== ARTICLE DETAIL VIEW ===== -->
-  <div class="view" id="view-article">
-    <div class="article-view" id="articleDetail"></div>
-  </div>
 
-  <!-- Toast -->
-  <div class="toast" id="toast">Review Published!</div>
+<!-- ============================================================
+     HOME VIEW
+     ============================================================ -->
+<div class="view active" id="view-home">
 
-  <script>
-    // ===== DATA =====
-    let currentRating = 0;
-    let currentFilter = 'all';
-    let currentSort = 'newest';
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__left">
+      <p class="hero__eyebrow">The critic's corner</p>
+      <h1 class="hero__title">Stories that<br>move us. <em>Reviewed.</em></h1>
+      <p class="hero__description">Thoughtful criticism and personal essays on film, literature, and television. No algorithms. No star ratings inflation. Just honest writing about art.</p>
+      <div class="hero__cats">
+        <button class="hero__cat-pill active" onclick="filterCat('all', this)">All Reviews</button>
+        <button class="hero__cat-pill" onclick="filterCat('film', this)">🎬 Film</button>
+        <button class="hero__cat-pill" onclick="filterCat('book', this)">📚 Books</button>
+        <button class="hero__cat-pill" onclick="filterCat('tv', this)">📺 Television</button>
+      </div>
+    </div>
 
-    const articles = [
-      {
-        id: 0, cat: 'film', rating: 5,
-        worktitle: 'Conclave', creator: 'Edward Berger', year: '2024',
-        reviewtitle: 'God is in the Doubt',
-        subtitle: 'Berger's papal thriller is the most gripping film about institutional power in years.',
-    excerpt: 'Conclave works on every level it attempts. As a thriller, it is gripping; as a meditation on faith, it is searching; as a portrait of institutional rot, it is unsparing. Edward Berger, following up All Quiet on the Western Front, proves himself a director who understands that the most dramatic spaces are rooms where old men argue quietly.',
-        body: `<p>Conclave works on every level it attempts. As a thriller, it is gripping; as a meditation on faith, it is searching; as a portrait of institutional rot, it is unsparing. Edward Berger, following up <em>All Quiet on the Western Front</em>, proves himself a director who understands that the most dramatic spaces are rooms where old men argue quietly.</p><p>Ralph Fiennes, playing Cardinal Lawrence, the dean tasked with overseeing the election of a new pope, gives what might be the performance of his career. His face is a weather system — clouds and clearings, sudden dark fronts. He is a man who no longer believes and cannot stop believing, and Fiennes holds that contradiction without ever announcing it.</p><blockquote>"A film about doubt in a world that rewards certainty is itself an act of courage."</blockquote><p>The screenplay, by Peter Straughan, adapts Robert Harris's novel with surgical precision. Every scene adds pressure. Every revelation reframes what came before. The pacing is that rarest of things in contemporary cinema: patient without being slow.</p><p>What stays with you is not the twist, which is genuinely surprising, but the film's final image — a face holding a truth it doesn't know what to do with. That's not a thriller ending. That's literature.</p>`,
-        verdict: 'The rare studio film that trusts its audience to sit with complexity.',
-        author: 'M. Calloway', date: 'January 14, 2025', reads: 2840
-      },
-      {
-        id: 1, cat: 'book', rating: 5,
-        worktitle: 'James', creator: 'Percival Everett', year: '2024',
-        reviewtitle: 'The Slave Who Sees Everything',
-        subtitle: 'Everett\'s reimagining of Huckleberry Finn is a masterpiece of controlled fury.',
-        excerpt: 'James does not ask you to enjoy it. It asks you to reckon. Percival Everett takes one of American literature\'s most beloved adventures and recenters it on the enslaved man at its margins, and in doing so, produces a novel that feels both ancient and urgently contemporary.',
-        body: `<p>James does not ask you to enjoy it. It asks you to reckon. Percival Everett takes one of American literature's most beloved adventures and recenters it on the enslaved man at its margins, and in doing so, produces a novel that feels both ancient and urgently contemporary.</p><p>The central conceit — that enslaved people speak a sophisticated internal language, performing ignorance for their enslavers — is devastating and brilliant. Jim, now James, is not the comic relief of Twain's original. He is watching. He has always been watching.</p><blockquote>"Everett doesn't rewrite Twain so much as he illuminates what was always there in the negative space."</blockquote><p>The prose has a sharpness to it, a tautness that Everett deploys carefully. There are passages of extraordinary beauty and passages of almost unbearable dread, sometimes within the same page. This is a book about what it costs to survive, and the writing earns its difficulty.</p><p>That James won the Pulitzer is appropriate. That it took this long to exist is its own kind of indictment.</p>`,
-        verdict: 'Devastating, brilliant, necessary. The novel of the year.',
-        author: 'P. Osei', date: 'December 2, 2024', reads: 1920
-      },
-      {
-        id: 2, cat: 'tv', rating: 4,
-        worktitle: 'Severance Season 2', creator: 'Ben Stiller / Dan Erickson', year: '2025',
-        reviewtitle: 'The Labyrinth Deepens',
-        subtitle: 'Season two refuses easy answers — and is better for it.',
-        excerpt: 'Three years is a long time to wait for answers you don\'t fully get. Severance\'s second season is more interested in expanding its map than marking any X. That is occasionally frustrating and consistently fascinating. Lumon Industries remains the strangest, most original workplace in television.',
-        body: `<p>Three years is a long time to wait for answers you don't fully get. Severance's second season is more interested in expanding its map than marking any X. That is occasionally frustrating and consistently fascinating. Lumon Industries remains the strangest, most original workplace in television.</p><p>What the season does brilliantly is deepen the mythology while keeping the human stakes legible. The Innies are not allegories — they are people, and their desperate grasp at selfhood in the nine episodes is often genuinely moving. Adam Scott continues to do extraordinary work, splitting his performance across two men who increasingly blur.</p><p>The show's visual language remains peerless. Those interminable corridors, those brutalist breakrooms, those waffle parties — Severance has built a world so specific it has its own physics.</p><blockquote>"To sever yourself from yourself is the ultimate corporate ask. The show never lets you forget it."</blockquote><p>The finale will divide viewers. It should. That it provokes argument means it's doing something real.</p>`,
-        verdict: 'Imperfect, ambitious, unmissable.',
-        author: 'D. Harrington', date: 'March 28, 2025', reads: 3100
-      },
-      {
-        id: 3, cat: 'film', rating: 4,
-        worktitle: 'The Substance', creator: 'Coralie Fargeat', year: '2024',
-        reviewtitle: 'The Body Revolts',
-        subtitle: 'Fargeat\'s body-horror provocation is exhausting, excess, and exactly right.',
-        excerpt: 'The Substance is not a subtle film. Coralie Fargeat is not a subtle director. Her debut, Revenge, announced a filmmaker who believes in turning the dial to maximum and welding it there. Her follow-up is louder, longer, more grotesque, and more genuinely disturbing in its implications than almost anything else in recent memory.',
-        body: `<p>The Substance is not a subtle film. Coralie Fargeat is not a subtle director. Her debut, <em>Revenge</em>, announced a filmmaker who believes in turning the dial to maximum and welding it there. Her follow-up is louder, longer, more grotesque, and more genuinely disturbing in its implications than almost anything else in recent memory.</p><p>Demi Moore gives the kind of performance that only emerges when a director gives an actor complete permission. She is funny, pathetic, magnificent, and tragic — sometimes within a single close-up. Margaret Qualley, playing her younger, smoother self, matches her at every turn.</p><p>The film's final act has divided audiences and will continue to do so. It goes far. Then further. Then further still. Whether you see this as excess for its own sake or as the logical endpoint of the film's argument about how women are consumed and discarded will define your experience of it.</p><p>I found it extraordinary. I left the cinema feeling like I'd been through something. Cinema should occasionally do that.</p>`,
-        verdict: 'Extreme, brilliant, uncomfortable. Essential.',
-        author: 'A. Chen', date: 'November 5, 2024', reads: 2200
-      },
-      {
-        id: 4, cat: 'book', rating: 4,
-        worktitle: 'Intermezzo', creator: 'Sally Rooney', year: '2024',
-        reviewtitle: 'Rooney Grows Up',
-        subtitle: 'Her fourth novel is her warmest and her most structurally daring.',
-        excerpt: 'Sally Rooney\'s detractors have always had a point. Her sentences can be airless; her characters\' crises provincial; her ironies a touch too pleased with themselves. Intermezzo doesn\'t silence the critics, but it does something more interesting: it makes you care so much you stop listening to them.',
-        body: `<p>Sally Rooney's detractors have always had a point. Her sentences can be airless; her characters' crises provincial; her ironies a touch too pleased with themselves. <em>Intermezzo</em> doesn't silence the critics, but it does something more interesting: it makes you care so much you stop listening to them.</p><p>The novel follows two brothers grieving their father, moving between Dublin and a small Irish town, between youth and middle age, between styles — one brother's sections rendered in Rooney's trademark free indirect speech, the other's in a strange, staccato present tense that takes some adjusting to but ultimately pays off.</p><blockquote>"Grief, Rooney suggests, does not equalise us. It reveals us."</blockquote><p>What's new here is warmth. Rooney has always been smart; here she is also kind. The characters are allowed to be good to each other, to try, to fail softly rather than catastrophically. That might sound boring. It isn't. It's a relief.</p>`,
-        verdict: 'Her most emotionally generous novel. A real step forward.',
-        author: 'T. Walsh', date: 'October 22, 2024', reads: 1750
-      },
-      {
-        id: 5, cat: 'tv', rating: 5,
-        worktitle: 'The Bear — Season 3', creator: 'Christopher Storer', year: '2024',
-        reviewtitle: 'Everything Is at Stake',
-        subtitle: 'Divisive on release, essential in retrospect — a season about what perfection costs.',
-        excerpt: 'Season three of The Bear was called too slow, too literary, too in love with its own misery. These criticisms are not wrong. They are also beside the point. Christopher Storer made a season of television that behaves like a great short story collection — formally daring, occasionally maddening, haunting in accumulation.',
-        body: `<p>Season three of The Bear was called too slow, too literary, too in love with its own misery. These criticisms are not wrong. They are also beside the point. Christopher Storer made a season of television that behaves like a great short story collection — formally daring, occasionally maddening, haunting in accumulation.</p><p>The episode structured around Carmy's fever dream — a parade of culinary ghosts, rendered in something close to silent film — is the most formally ambitious thing a streaming service has produced in years. It may not "work" in a conventional sense. It is not trying to.</p><p>What the season is about, ultimately, is the cost of genius. Not its glamour or its rewards — its cost. Carmy destroys every relationship that matters to him in pursuit of something no one else can see. The show asks whether that is tragedy or vocation. It does not answer.</p><blockquote>"To be this devoted is to be this isolated. The season earns its gloom."</blockquote><p>If this is the show losing its audience, it is doing so magnificently.</p>`,
-        verdict: 'Punishing, precise, and the best drama on television.',
-        author: 'R. Diaz', date: 'August 8, 2024', reads: 2600
-      }
-    ];
+    <div class="hero__right">
+      <div class="featured-card" onclick="openArticle(0)">
+        <div class="featured-card__image">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="60" r="50" stroke="#C8A84B" stroke-width="2"/>
+            <polygon points="45,35 90,60 45,85" fill="#C8A84B"/>
+          </svg>
+          <div class="featured-card__badge">Editor's Pick</div>
+        </div>
+        <span class="tag tag--film">Film</span>
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span>
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <h3 class="featured-card__title">Conclave</h3>
+        <p class="featured-card__meta">Edward Berger · 2024 · Drama / Thriller</p>
+      </div>
+    </div>
+  </section>
 
-    // ===== RENDER =====
-    function starsHTML(n, size = '0.8rem') {
-      let h = '';
-      for (let i = 1; i <= 5; i++) h += `<span style="color:${i <= n ? 'var(--gold)' : 'var(--border)'};font-size:${size}">★</span>`;
-      return h;
-    }
+  <!-- Main two-column layout -->
+  <div class="main-layout">
 
-    function tagHTML(cat) {
-      const map = { film: ['tag-film', 'Film'], book: ['tag-book', 'Book'], tv: ['tag-tv', 'TV'] };
-      const [cls, label] = map[cat] || ['tag-film', 'Other'];
-      return `<span class="hfc-tag ${cls}">${label}</span>`;
-    }
+    <!-- Feed column -->
+    <div class="main-layout__feed">
 
-    function renderFeed() {
-      const list = document.getElementById('articleList');
-      let data = [...articles];
-      if (currentFilter !== 'all') data = data.filter(a => a.cat === currentFilter);
-      if (currentSort === 'newest') data.sort((a, b) => b.id - a.id);
-      else if (currentSort === 'oldest') data.sort((a, b) => a.id - b.id);
-      else if (currentSort === 'rating') data.sort((a, b) => b.rating - a.rating);
+      <!-- Filter bar -->
+      <div class="filter-bar">
+        <span class="filter-bar__label">Filter:</span>
+        <button class="filter-bar__btn active" onclick="filterCat('all', this)">All</button>
+        <button class="filter-bar__btn" onclick="filterCat('film', this)">Film</button>
+        <button class="filter-bar__btn" onclick="filterCat('book', this)">Books</button>
+        <button class="filter-bar__btn" onclick="filterCat('tv', this)">TV</button>
+        <div class="filter-bar__divider"></div>
+        <span class="filter-bar__label">Sort:</span>
+        <select class="filter-bar__sort" onchange="sortArticles(this.value)">
+          <option value="newest">Newest first</option>
+          <option value="rating">Highest rated</option>
+          <option value="oldest">Oldest first</option>
+        </select>
+      </div>
 
-      if (data.length === 0) {
-        list.innerHTML = `<div style="padding:4rem 0;text-align:center;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;">No reviews yet in this category.<br><br><button class="btn-write" onclick="showView('write')">Be the first →</button></div>`;
-        return;
-      }
+      <!-- Articles are injected here by renderFeed() -->
+      <div class="article-list" id="articleList"></div>
+    </div>
 
-      const shapes = {
-        film: `<svg width="70" height="70" viewBox="0 0 70 70" fill="none"><circle cx="35" cy="35" r="28" stroke="#C8A84B" stroke-width="2" opacity="0.5"/><polygon points="25,20 55,35 25,50" fill="#C8A84B" opacity="0.6"/></svg>`,
-        book: `<svg width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="12" y="10" width="40" height="52" rx="2" stroke="#7ABB8A" stroke-width="2" opacity="0.5"/><line x1="20" y1="25" x2="44" y2="25" stroke="#7ABB8A" stroke-width="1.5" opacity="0.5"/><line x1="20" y1="33" x2="44" y2="33" stroke="#7ABB8A" stroke-width="1.5" opacity="0.5"/><line x1="20" y1="41" x2="36" y2="41" stroke="#7ABB8A" stroke-width="1.5" opacity="0.5"/></svg>`,
-        tv: `<svg width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="8" y="18" width="54" height="36" rx="3" stroke="#8A9ABB" stroke-width="2" opacity="0.5"/><line x1="20" y1="54" x2="20" y2="62" stroke="#8A9ABB" stroke-width="2" opacity="0.5"/><line x1="50" y1="54" x2="50" y2="62" stroke="#8A9ABB" stroke-width="2" opacity="0.5"/></svg>`
-      };
+    <!-- Sidebar column -->
+    <aside class="main-layout__sidebar">
 
-      list.innerHTML = data.map(a => `
-    <div class="article-card" onclick="openArticle(${a.id})">
-      <div class="ac-body">
-        <div class="ac-tags">${tagHTML(a.cat)}</div>
-        <h2 class="ac-title">${a.reviewtitle}</h2>
-        ${a.subtitle ? `<p class="ac-subtitle">${a.subtitle}</p>` : ''}
-        <p class="ac-excerpt">${a.excerpt}</p>
-        <div class="ac-meta">
-          <span class="ac-author">${a.author}</span>
-          <span>·</span>
-          <span>${a.date}</span>
-          <span>·</span>
-          <div class="ac-stars">${starsHTML(a.rating)}</div>
-          <span>·</span>
-          <span>${a.reads.toLocaleString()} reads</span>
+      <div class="sidebar__section">
+        <div class="sidebar__heading">Most Read</div>
+        <div id="sidebarMostRead"></div>
+      </div>
+
+      <div class="sidebar__section">
+        <div class="sidebar__heading">Browse by Category</div>
+        <div class="sidebar__category" onclick="filterCat('film', null)">
+          <span class="sidebar__category-name" style="color: var(--color-tag-film-text);">🎬 Film</span>
+          <span class="sidebar__category-count" id="countFilm">0 reviews</span>
+        </div>
+        <div class="sidebar__category" onclick="filterCat('book', null)">
+          <span class="sidebar__category-name" style="color: var(--color-tag-book-text);">📚 Books</span>
+          <span class="sidebar__category-count" id="countBook">0 reviews</span>
+        </div>
+        <div class="sidebar__category" onclick="filterCat('tv', null)">
+          <span class="sidebar__category-name" style="color: var(--color-tag-tv-text);">📺 Television</span>
+          <span class="sidebar__category-count" id="countTv">0 reviews</span>
         </div>
       </div>
-      <div class="ac-img"><div class="ac-img-inner">${shapes[a.cat] || ''}</div></div>
-    </div>
-  `).join('');
-    }
 
-    function renderSidebar() {
-      const top = [...articles].sort((a, b) => b.reads - a.reads).slice(0, 4);
-      document.getElementById('sidebarMostRead').innerHTML = top.map((a, i) => `
-    <div class="sidebar-item" onclick="openArticle(${a.id})">
-      <div class="si-num">0${i + 1}</div>
-      <div class="si-content">
-        <div class="si-title">${a.reviewtitle}</div>
-        <div class="si-meta">${a.worktitle} · ${a.author}</div>
+      <div class="sidebar__section">
+        <div class="sidebar__heading">About</div>
+        <p class="sidebar__about-text">Reel & Ink is a space for considered, opinionated criticism. Everyone has a take. Here, we back ours up with 800 words.</p>
+        <button class="btn-primary btn-primary--full" onclick="showView('write')">Write a Review →</button>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     WRITE VIEW
+     ============================================================ -->
+<div class="view" id="view-write">
+  <div class="write-page">
+
+    <div class="write-page__header">
+      <h2 class="write-page__title">Write a Review</h2>
+      <p class="write-page__subtitle">Share your take. Be honest. Be specific. Make it worth reading.</p>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-row">
+        <label class="form-label" for="f-category">Category *</label>
+        <select class="form-control form-control--select" id="f-category">
+          <option value="">— Select type —</option>
+          <option value="film">🎬 Film</option>
+          <option value="book">📚 Book</option>
+          <option value="tv">📺 TV Show</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Your Rating *</label>
+        <div class="star-input" id="starRating">
+          <button class="star-input__btn" onclick="setRating(1)">★</button>
+          <button class="star-input__btn" onclick="setRating(2)">★</button>
+          <button class="star-input__btn" onclick="setRating(3)">★</button>
+          <button class="star-input__btn" onclick="setRating(4)">★</button>
+          <button class="star-input__btn" onclick="setRating(5)">★</button>
+        </div>
+        <p class="form-hint" id="ratingLabel">Click to rate</p>
       </div>
     </div>
-  `).join('');
 
-      document.getElementById('countFilm').textContent = articles.filter(a => a.cat === 'film').length + ' reviews';
-      document.getElementById('countBook').textContent = articles.filter(a => a.cat === 'book').length + ' reviews';
-      document.getElementById('countTv').textContent = articles.filter(a => a.cat === 'tv').length + ' reviews';
-    }
+    <div class="form-row">
+      <label class="form-label" for="f-worktitle">Title of the Work *</label>
+      <input class="form-control" id="f-worktitle" type="text" placeholder="e.g. The Substance, James, Severance Season 2">
+    </div>
 
-    function filterCat(cat, el) {
-      currentFilter = cat;
-      document.querySelectorAll('.filter-btn,.cat-pill,.nav-links a').forEach(e => e.classList.remove('active'));
-      if (el) el.classList.add('active');
-      showView('home');
-      renderFeed();
-    }
-
-    function sortArticles(val) {
-      currentSort = val;
-      renderFeed();
-    }
-
-    // ===== ARTICLE DETAIL =====
-    function openArticle(id) {
-      const a = articles.find(x => x.id === id);
-      if (!a) return;
-      a.reads++;
-      document.getElementById('articleDetail').innerHTML = `
-    <button class="av-back" onclick="showView('home')">← Back to reviews</button>
-    <div class="av-tags">${tagHTML(a.cat)}</div>
-    <h1 class="av-title">${a.reviewtitle}</h1>
-    ${a.subtitle ? `<p class="av-subtitle">${a.subtitle}</p>` : ''}
-    <div class="av-byline">
-      <span class="av-author">By <strong>${a.author}</strong></span>
-      <span class="av-date">${a.date}</span>
-      <div class="av-rating">
-        ${starsHTML(a.rating, '1rem')}
-        <span class="av-rating-num">${a.rating}/5</span>
+    <div class="form-grid">
+      <div class="form-row">
+        <label class="form-label" for="f-creator">Director / Author / Creator</label>
+        <input class="form-control" id="f-creator" type="text" placeholder="e.g. Coralie Fargeat">
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="f-year">Year</label>
+        <input class="form-control" id="f-year" type="text" placeholder="e.g. 2024">
       </div>
     </div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted);margin-bottom:2.5rem;letter-spacing:0.06em;">${a.worktitle}${a.creator ? ' · ' + a.creator : ''}${a.year ? ' · ' + a.year : ''}</div>
-    <div class="av-body">${a.body}</div>
-    ${a.verdict ? `<div class="av-verdict"><div class="av-verdict-label">Verdict</div><div class="av-verdict-text">${a.verdict}</div></div>` : ''}
-  `;
-      showView('article');
-      window.scrollTo(0, 0);
-    }
 
-    // ===== WRITE VIEW =====
-    function setRating(n) {
-      currentRating = n;
-      const labels = ['', 'One star — significant reservations', 'Two stars — more bad than good', 'Three stars — worth your time', 'Four stars — very good', 'Five stars — essential'];
-      document.getElementById('ratingLabel').textContent = labels[n];
-      document.querySelectorAll('.star-btn').forEach((btn, i) => {
-        btn.classList.toggle('active', i < n);
-      });
-    }
+    <div class="form-row">
+      <label class="form-label" for="f-reviewtitle">Your Review Title *</label>
+      <input class="form-control" id="f-reviewtitle" type="text" placeholder="A compelling, specific headline for your review">
+    </div>
 
-    function updateCharCount() {
-      const n = document.getElementById('f-body').value.length;
-      const el = document.getElementById('charCount');
-      el.textContent = n.toLocaleString() + ' characters' + (n < 200 ? ` (aim for at least ${200 - n} more)` : ' ✓');
-      el.style.color = n >= 200 ? '#7ABB8A' : 'var(--muted)';
-    }
+    <div class="form-row">
+      <label class="form-label" for="f-subtitle">Subtitle / Deck (optional)</label>
+      <input class="form-control" id="f-subtitle" type="text" placeholder="A supporting line — poetic, witty, or clarifying">
+    </div>
 
-    function submitReview() {
-      const cat = document.getElementById('f-category').value;
-      const worktitle = document.getElementById('f-worktitle').value.trim();
-      const reviewtitle = document.getElementById('f-reviewtitle').value.trim();
-      const body = document.getElementById('f-body').value.trim();
-      const author = document.getElementById('f-author').value.trim();
+    <div class="form-row">
+      <label class="form-label" for="f-body">Your Review *</label>
+      <textarea class="form-control form-control--textarea" id="f-body"
+        placeholder="Write your review here. Aim for at least 200 words. Quote the work. Make an argument."
+        oninput="updateCharCount()"></textarea>
+      <p class="form-char-count" id="charCount">0 characters</p>
+    </div>
 
-      if (!cat || !worktitle || !reviewtitle || !body || !author || !currentRating) {
-        const fields = [];
-        if (!cat) fields.push('category');
-        if (!worktitle) fields.push('title of work');
-        if (!reviewtitle) fields.push('review title');
-        if (!body) fields.push('review body');
-        if (!author) fields.push('your name');
-        if (!currentRating) fields.push('rating');
-        alert('Please fill in: ' + fields.join(', '));
-        return;
-      }
+    <div class="form-grid">
+      <div class="form-row">
+        <label class="form-label" for="f-author">Your Name *</label>
+        <input class="form-control" id="f-author" type="text" placeholder="How you'd like to be credited">
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="f-verdict">Verdict (one sentence)</label>
+        <input class="form-control" id="f-verdict" type="text" placeholder="Your sharpest bottom-line take">
+      </div>
+    </div>
 
-      const newId = Math.max(...articles.map(a => a.id)) + 1;
-      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      const now = new Date();
-      const dateStr = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+    <div>
+      <button class="btn-submit" onclick="submitReview()">Publish Review →</button>
+      <button class="btn-ghost" onclick="showView('home')">Cancel</button>
+    </div>
 
-      const newArticle = {
-        id: newId, cat,
-        worktitle,
-        creator: document.getElementById('f-creator').value.trim(),
-        year: document.getElementById('f-year').value.trim(),
-        reviewtitle,
-        subtitle: document.getElementById('f-subtitle').value.trim(),
-        excerpt: body.slice(0, 280) + (body.length > 280 ? '...' : ''),
-        body: body.split('\n').filter(p => p.trim()).map(p => `<p>${p}</p>`).join(''),
-        verdict: document.getElementById('f-verdict').value.trim(),
-        author,
-        date: dateStr,
-        rating: currentRating,
-        reads: 1
-      };
+  </div>
+</div>
 
-      articles.unshift(newArticle);
 
-      // Reset form
-      ['f-category', 'f-worktitle', 'f-creator', 'f-year', 'f-reviewtitle', 'f-subtitle', 'f-body', 'f-author', 'f-verdict'].forEach(id => {
-        document.getElementById(id).value = '';
-      });
-      currentRating = 0;
-      document.querySelectorAll('.star-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById('ratingLabel').textContent = 'Click to rate';
-      document.getElementById('charCount').textContent = '0 characters';
+<!-- ============================================================
+     ARTICLE DETAIL VIEW
+     Content is injected by openArticle()
+     ============================================================ -->
+<div class="view" id="view-article">
+  <div id="articleDetail"></div>
+</div>
 
-      currentFilter = 'all';
-      currentSort = 'newest';
-      showView('home');
-      renderFeed();
-      renderSidebar();
-      openArticle(newId);
 
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
-    }
+<!-- Toast notification -->
+<div class="toast" id="toast">Review Published!</div>
 
-    // ===== VIEW MANAGER =====
-    function showView(name) {
-      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-      document.getElementById('view-' + name).classList.add('active');
-      if (name !== 'article') window.scrollTo(0, 0);
-    }
-
-    // ===== INIT =====
-    renderFeed();
-    renderSidebar();
-  </script>
+<script src="scripts.js"></script>
 </body>
-
 </html>
