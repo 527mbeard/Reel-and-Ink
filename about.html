@@ -3,10 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
 <title>The Mind of Maddie Ann</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -26,9 +22,7 @@
   </ul>
 
   <div class="nav__actions">
-    <a href="about.html">
-      <button class="btn-primary">About the Author</button>
-    </a>
+    <button class="btn-primary" href="about.html">About the Author</button>
   </div>
 </nav>
 
@@ -58,101 +52,7 @@
 <!-- ============================================================
      HOME VIEW
      ============================================================ -->
-<div class="view active" id="view-home">
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero__left">
-      <p class="hero__eyebrow">The critic's corner</p>
-      <h1 class="hero__title">Stories that<br>move us. <em>Reviewed.</em></h1>
-      <p class="hero__description">Thoughtful criticism and personal essays on film, literature, and television. No algorithms. No star ratings inflation. Just honest writing about art.</p>
-      <div class="hero__cats">
-        <button class="hero__cat-pill active" onclick="filterCat('all', this)">All Reviews</button>
-        <button class="hero__cat-pill" onclick="filterCat('film', this)">🎬 Film</button>
-        <button class="hero__cat-pill" onclick="filterCat('book', this)">📚 Books</button>
-        <button class="hero__cat-pill" onclick="filterCat('tv', this)">📺 Television</button>
-      </div>
-    </div>
-
-    <div class="hero__right">
-      <div class="featured-card" onclick="openArticle(0)">
-        <div class="featured-card__image">
-          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-            <circle cx="60" cy="60" r="50" stroke="#C8A84B" stroke-width="2"/>
-            <polygon points="45,35 90,60 45,85" fill="#C8A84B"/>
-          </svg>
-          <div class="featured-card__badge">Editor's Pick</div>
-        </div>
-        <span class="tag tag--film">Film</span>
-        <div class="stars">
-          <span class="star">★</span><span class="star">★</span>
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span>
-        </div>
-        <h3 class="featured-card__title">Conclave</h3>
-        <p class="featured-card__meta">Edward Berger · 2024 · Drama / Thriller</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main two-column layout -->
-  <div class="main-layout">
-
-    <!-- Feed column -->
-    <div class="main-layout__feed">
-
-      <!-- Filter bar -->
-      <div class="filter-bar">
-        <span class="filter-bar__label">Filter:</span>
-        <button class="filter-bar__btn active" onclick="filterCat('all', this)">All</button>
-        <button class="filter-bar__btn" onclick="filterCat('film', this)">Film</button>
-        <button class="filter-bar__btn" onclick="filterCat('book', this)">Books</button>
-        <button class="filter-bar__btn" onclick="filterCat('tv', this)">TV</button>
-        <div class="filter-bar__divider"></div>
-        <span class="filter-bar__label">Sort:</span>
-        <select class="filter-bar__sort" onchange="sortArticles(this.value)">
-          <option value="newest">Newest first</option>
-          <option value="rating">Highest rated</option>
-          <option value="oldest">Oldest first</option>
-        </select>
-      </div>
-
-      <!-- Articles are injected here by renderFeed() -->
-      <div class="article-list" id="articleList"></div>
-    </div>
-
-    <!-- Sidebar column -->
-    <aside class="main-layout__sidebar">
-
-      <div class="sidebar__section">
-        <div class="sidebar__heading">Most Read</div>
-        <div id="sidebarMostRead"></div>
-      </div>
-
-      <div class="sidebar__section">
-        <div class="sidebar__heading">Browse by Category</div>
-        <div class="sidebar__category" onclick="filterCat('film', null)">
-          <span class="sidebar__category-name" style="color: var(--color-tag-film-text);">🎬 Film</span>
-          <span class="sidebar__category-count" id="countFilm">0 reviews</span>
-        </div>
-        <div class="sidebar__category" onclick="filterCat('book', null)">
-          <span class="sidebar__category-name" style="color: var(--color-tag-book-text);">📚 Books</span>
-          <span class="sidebar__category-count" id="countBook">0 reviews</span>
-        </div>
-        <div class="sidebar__category" onclick="filterCat('tv', null)">
-          <span class="sidebar__category-name" style="color: var(--color-tag-tv-text);">📺 Television</span>
-          <span class="sidebar__category-count" id="countTv">0 reviews</span>
-        </div>
-      </div>
-
-      <div class="sidebar__section">
-        <div class="sidebar__heading">About</div>
-        <p class="sidebar__about-text">Reel & Ink is a space for considered, opinionated criticism. Everyone has a take. Here, we back ours up with 800 words.</p>
-        <button class="btn-primary btn-primary--full" onclick="showView('write')">Write a Review →</button>
-      </div>
-
-    </aside>
-  </div>
-</div>
 
 
 <!-- ============================================================
