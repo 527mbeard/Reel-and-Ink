@@ -153,6 +153,7 @@ body {
   letter-spacing: -0.02em;
   color: var(--color-text-primary);
   cursor: pointer;
+  text-decoration: none;
 } 
 
 /* Nav link list */

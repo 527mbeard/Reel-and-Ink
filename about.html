@@ -1,160 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Mind of Maddie Ann</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Mind of Maddie Ann</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<nav class="nav">
-  <div class="nav__logo" onclick="showView('home')">
-    Maddie Ann
-  </div>
+  <nav class="nav">
+    <div onclick="showView('home')">
+      <a href="index.html" class="nav__logo">Maddie Ann</a>
+    </div>
 
-  <ul class="nav__links">
-    <li><a class="nav__link active" href="#" onclick="filterCat('all', this)">All</a></li>
-    <li><a class="nav__link" href="#" onclick="filterCat('film', this)">Film</a></li>
-    <li><a class="nav__link" href="#" onclick="filterCat('book', this)">Books</a></li>
-    <li><a class="nav__link" href="#" onclick="filterCat('tv', this)">TV</a></li>
-  </ul>
+    <ul class="nav__links">
+      <li><a class="nav__link active" href="#" onclick="filterCat('all', this)">All</a></li>
+      <li><a class="nav__link" href="#" onclick="filterCat('film', this)">Film</a></li>
+      <li><a class="nav__link" href="#" onclick="filterCat('book', this)">Books</a></li>
+      <li><a class="nav__link" href="#" onclick="filterCat('tv', this)">TV</a></li>
+    </ul>
 
-  <div class="nav__actions">
-    <button class="btn-primary" href="about.html">About the Author</button>
-  </div>
-</nav>
+    <div class="nav__actions">
+      <button class="btn-primary" href="about.html">About the Author</button>
+    </div>
+  </nav>
 
 
-<!-- ============================================================
+  <!-- ============================================================
      TICKER
      Add or remove .ticker__item spans to change the text
      ============================================================ -->
-<div class="ticker">
-  <div class="ticker__track">
-    <span class="ticker__item">Now Reading: Two Can Play by Ali Hazelwood</span>
-    <span class="ticker__item">★★★★★</span>
-    <span class="ticker__item">Now Watching: The Rookie</span>
-    <span class="ticker__item">★★★★☆</span>
-    <span class="ticker__item">Now Viewing: Edge of Tomorrow</span>
-    <span class="ticker__item">★★★★☆</span>
-    <span class="ticker__item">Now Reading: Two can Play by Ali Hazelwood</span>
-    <span class="ticker__item">★★★★★</span>
-    <span class="ticker__item">Now Watching: The Rookie</span>
-    <span class="ticker__item">★★★★☆</span>
-    <span class="ticker__item">Now Viewing: Edge of Tomorrow</span>
-    <span class="ticker__item">★★★★☆</span>
+  <div class="ticker">
+    <div class="ticker__track">
+      <span class="ticker__item">Now Reading: Two Can Play by Ali Hazelwood</span>
+      <span class="ticker__item">★★★★★</span>
+      <span class="ticker__item">Now Watching: The Rookie</span>
+      <span class="ticker__item">★★★★☆</span>
+      <span class="ticker__item">Now Viewing: Edge of Tomorrow</span>
+      <span class="ticker__item">★★★★☆</span>
+      <span class="ticker__item">Now Reading: Two can Play by Ali Hazelwood</span>
+      <span class="ticker__item">★★★★★</span>
+      <span class="ticker__item">Now Watching: The Rookie</span>
+      <span class="ticker__item">★★★★☆</span>
+      <span class="ticker__item">Now Viewing: Edge of Tomorrow</span>
+      <span class="ticker__item">★★★★☆</span>
+    </div>
   </div>
-</div>
 
 
-<!-- ============================================================
+  <!-- ============================================================
      HOME VIEW
      ============================================================ -->
 
 
 
-<!-- ============================================================
+  <!-- ============================================================
      WRITE VIEW
      ============================================================ -->
-<div class="view" id="view-write">
-  <div class="write-page">
+  <div class="view" id="view-write">
+    <div class="write-page">
 
-    <div class="write-page__header">
-      <h2 class="write-page__title">Write a Review</h2>
-      <p class="write-page__subtitle">Share your take. Be honest. Be specific. Make it worth reading.</p>
-    </div>
-
-    <div class="form-grid">
-      <div class="form-row">
-        <label class="form-label" for="f-category">Category *</label>
-        <select class="form-control form-control--select" id="f-category">
-          <option value="">— Select type —</option>
-          <option value="film">🎬 Film</option>
-          <option value="book">📚 Book</option>
-          <option value="tv">📺 TV Show</option>
-        </select>
+      <div class="write-page__header">
+        <h2 class="write-page__title">Write a Review</h2>
+        <p class="write-page__subtitle">Share your take. Be honest. Be specific. Make it worth reading.</p>
       </div>
-      <div class="form-row">
-        <label class="form-label">Your Rating *</label>
-        <div class="star-input" id="starRating">
-          <button class="star-input__btn" onclick="setRating(1)">★</button>
-          <button class="star-input__btn" onclick="setRating(2)">★</button>
-          <button class="star-input__btn" onclick="setRating(3)">★</button>
-          <button class="star-input__btn" onclick="setRating(4)">★</button>
-          <button class="star-input__btn" onclick="setRating(5)">★</button>
+
+      <div class="form-grid">
+        <div class="form-row">
+          <label class="form-label" for="f-category">Category *</label>
+          <select class="form-control form-control--select" id="f-category">
+            <option value="">— Select type —</option>
+            <option value="film">🎬 Film</option>
+            <option value="book">📚 Book</option>
+            <option value="tv">📺 TV Show</option>
+          </select>
         </div>
-        <p class="form-hint" id="ratingLabel">Click to rate</p>
+        <div class="form-row">
+          <label class="form-label">Your Rating *</label>
+          <div class="star-input" id="starRating">
+            <button class="star-input__btn" onclick="setRating(1)">★</button>
+            <button class="star-input__btn" onclick="setRating(2)">★</button>
+            <button class="star-input__btn" onclick="setRating(3)">★</button>
+            <button class="star-input__btn" onclick="setRating(4)">★</button>
+            <button class="star-input__btn" onclick="setRating(5)">★</button>
+          </div>
+          <p class="form-hint" id="ratingLabel">Click to rate</p>
+        </div>
       </div>
-    </div>
 
-    <div class="form-row">
-      <label class="form-label" for="f-worktitle">Title of the Work *</label>
-      <input class="form-control" id="f-worktitle" type="text" placeholder="e.g. The Substance, James, Severance Season 2">
-    </div>
-
-    <div class="form-grid">
       <div class="form-row">
-        <label class="form-label" for="f-creator">Director / Author / Creator</label>
-        <input class="form-control" id="f-creator" type="text" placeholder="e.g. Coralie Fargeat">
+        <label class="form-label" for="f-worktitle">Title of the Work *</label>
+        <input class="form-control" id="f-worktitle" type="text"
+          placeholder="e.g. The Substance, James, Severance Season 2">
       </div>
+
+      <div class="form-grid">
+        <div class="form-row">
+          <label class="form-label" for="f-creator">Director / Author / Creator</label>
+          <input class="form-control" id="f-creator" type="text" placeholder="e.g. Coralie Fargeat">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="f-year">Year</label>
+          <input class="form-control" id="f-year" type="text" placeholder="e.g. 2024">
+        </div>
+      </div>
+
       <div class="form-row">
-        <label class="form-label" for="f-year">Year</label>
-        <input class="form-control" id="f-year" type="text" placeholder="e.g. 2024">
+        <label class="form-label" for="f-reviewtitle">Your Review Title *</label>
+        <input class="form-control" id="f-reviewtitle" type="text"
+          placeholder="A compelling, specific headline for your review">
       </div>
-    </div>
 
-    <div class="form-row">
-      <label class="form-label" for="f-reviewtitle">Your Review Title *</label>
-      <input class="form-control" id="f-reviewtitle" type="text" placeholder="A compelling, specific headline for your review">
-    </div>
-
-    <div class="form-row">
-      <label class="form-label" for="f-subtitle">Subtitle / Deck (optional)</label>
-      <input class="form-control" id="f-subtitle" type="text" placeholder="A supporting line — poetic, witty, or clarifying">
-    </div>
-
-    <div class="form-row">
-      <label class="form-label" for="f-body">Your Review *</label>
-      <textarea class="form-control form-control--textarea" id="f-body"
-        placeholder="Write your review here. Aim for at least 200 words. Quote the work. Make an argument."
-        oninput="updateCharCount()"></textarea>
-      <p class="form-char-count" id="charCount">0 characters</p>
-    </div>
-
-    <div class="form-grid">
       <div class="form-row">
-        <label class="form-label" for="f-author">Your Name *</label>
-        <input class="form-control" id="f-author" type="text" placeholder="How you'd like to be credited">
+        <label class="form-label" for="f-subtitle">Subtitle / Deck (optional)</label>
+        <input class="form-control" id="f-subtitle" type="text"
+          placeholder="A supporting line — poetic, witty, or clarifying">
       </div>
+
       <div class="form-row">
-        <label class="form-label" for="f-verdict">Verdict (one sentence)</label>
-        <input class="form-control" id="f-verdict" type="text" placeholder="Your sharpest bottom-line take">
+        <label class="form-label" for="f-body">Your Review *</label>
+        <textarea class="form-control form-control--textarea" id="f-body"
+          placeholder="Write your review here. Aim for at least 200 words. Quote the work. Make an argument."
+          oninput="updateCharCount()"></textarea>
+        <p class="form-char-count" id="charCount">0 characters</p>
       </div>
-    </div>
 
-    <div>
-      <button class="btn-submit" onclick="submitReview()">Publish Review →</button>
-      <button class="btn-ghost" onclick="showView('home')">Cancel</button>
-    </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label class="form-label" for="f-author">Your Name *</label>
+          <input class="form-control" id="f-author" type="text" placeholder="How you'd like to be credited">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="f-verdict">Verdict (one sentence)</label>
+          <input class="form-control" id="f-verdict" type="text" placeholder="Your sharpest bottom-line take">
+        </div>
+      </div>
 
+      <div>
+        <button class="btn-submit" onclick="submitReview()">Publish Review →</button>
+        <button class="btn-ghost" onclick="showView('home')">Cancel</button>
+      </div>
+
+    </div>
   </div>
-</div>
 
 
-<!-- ============================================================
+  <!-- ============================================================
      ARTICLE DETAIL VIEW
      Content is injected by openArticle()
      ============================================================ -->
-<div class="view" id="view-article">
-  <div id="articleDetail"></div>
-</div>
+  <div class="view" id="view-article">
+    <div id="articleDetail"></div>
+  </div>
 
 
-<!-- Toast notification -->
-<div class="toast" id="toast">Review Published!</div>
+  <!-- Toast notification -->
+  <div class="toast" id="toast">Review Published!</div>
 
-<script src="scripts.js"></script>
+  <script src="scripts.js"></script>
 </body>
+
 </html>
