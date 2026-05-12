@@ -10,34 +10,43 @@ mageenta #D63384 */
 :root {
   
 /* BACKGROUNDS */
-  --color-bg-primary: #F9F4F1;
-  --color-bg-secondary: #FFFDFC;
-  --color-bg-tertiary: #F0E7E4;
+--color-bg-primary: #F5EEEE;
+--color-bg-secondary: #FFF9F9;
+--color-bg-tertiary: #E7D6D8;
 
-  /* TEXT */
-  --color-text-primary: #2A1F26;
-  --color-text-muted: #7E6F76;
+/* TEXT */
+--color-text-primary: #2A1116;
+--color-text-muted: #73565D;
 
-  /* ACCENTS */
-  --color-accent: #C95D8C;
-  --color-accent-dark: #A94770;
+/* MAIN WINE COLORS */
+--color-accent: #8E1F2D;
+--color-accent-dark: #6E1823;
 
-  /* BORDERS */
-  --color-border: #E1D4D9;
+--color-wine: #8E1F2D;
+--color-wine-dark: #5E111B;
+--color-wine-light: #B14558;
 
-  /* CATEGORY COLORS */
-  --color-tag-film-bg: rgba(201, 93, 140, 0.1);
-  --color-tag-film-text: #B14473;
-  --color-tag-film-border: rgba(201, 93, 140, 0.2);
+/* SOFT NEON PINK */
+--color-highlight: #F6A3B4;
 
-  --color-tag-book-bg: rgba(172, 128, 214, 0.1);
-  --color-tag-book-text: #8E63B8;
-  --color-tag-book-border: rgba(172, 128, 214, 0.2);
+/* GLOW */
+--color-glow: rgba(246, 163, 180, 0.35);
 
-  --color-tag-tv-bg: rgba(125, 155, 225, 0.1);
-  --color-tag-tv-text: #5D79B8;
-  --color-tag-tv-border: rgba(125, 155, 225, 0.2);
+/* BORDERS */
+--color-border: #D7C0C4;
 
+/* CATEGORY COLORS */
+--color-tag-film-bg: rgba(142, 31, 45, 0.10);
+--color-tag-film-text: #8E1F2D;
+--color-tag-film-border: rgba(142, 31, 45, 0.2);
+
+--color-tag-book-bg: rgba(177, 69, 88, 0.10);
+--color-tag-book-text: #9B4052;
+--color-tag-book-border: rgba(177, 69, 88, 0.2);
+
+--color-tag-tv-bg: rgba(116, 77, 98, 0.10);
+--color-tag-tv-text: #744D62;
+--color-tag-tv-border: rgba(116, 77, 98, 0.2);
 
 
   /* Fonts — swap these to change the whole site's feel */
@@ -1236,20 +1245,60 @@ body {
    ============================================================ */
 
 body.dark-mode {
-  --color-bg-primary: #0f0f12;
-  --color-bg-secondary: #17171c;
-  --color-bg-tertiary: #22222a;
 
-  --color-text-primary: #f2f2f2;
-  --color-text-muted: #a0a0aa;
+/* BACKGROUNDS */
+--color-bg-primary: #120508;
+--color-bg-secondary: #1B0A0E;
+--color-bg-tertiary: #2A1218;
 
-  --color-border: #2a2a33;
+/* TEXT */
+--color-text-primary: #FFECEF;
+--color-text-muted: #B798A0;
 
-  --color-accent: #D63384; /* keep your pink accent */
-  --color-accent-dark: #b82a6e;
+/* MAIN WINE */
+--color-accent: #B52A3F;
+--color-accent-dark: #8E1F2D;
 
-  /* soften category colors in dark mode */
-  --color-tag-film-bg: rgba(214, 51, 132, 0.15);
-  --color-tag-book-bg: rgba(138, 101, 220, 0.15);
-  --color-tag-tv-bg: rgba(90, 130, 220, 0.15);
+--color-wine: #B52A3F;
+--color-wine-dark: #731322;
+--color-wine-light: #D75A71;
+
+/* NEON PINK HIGHLIGHT */
+--color-highlight: #FFB2C2;
+
+/* GLOW */
+--color-glow: rgba(255, 178, 194, 0.45);
+
+/* BORDERS */
+--color-border: #3B1820;
+
+/* CATEGORY COLORS */
+--color-tag-film-bg: rgba(181, 42, 63, 0.16);
+--color-tag-film-text: #FFB6C5;
+--color-tag-film-border: rgba(181, 42, 63, 0.25);
+
+--color-tag-book-bg: rgba(215, 90, 113, 0.16);
+--color-tag-book-text: #FFC4CF;
+--color-tag-book-border: rgba(215, 90, 113, 0.25);
+
+--color-tag-tv-bg: rgba(133, 95, 122, 0.16);
+--color-tag-tv-text: #E1C5D5;
+--color-tag-tv-border: rgba(133, 95, 122, 0.25);
+
+}
+
+body,
+.nav,
+.article-card,
+.category-card,
+.featured-card,
+.filter-bar,
+.sidebar__section,
+.form-control,
+button {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
