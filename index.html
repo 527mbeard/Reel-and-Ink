@@ -19,14 +19,17 @@
 
   <nav class="nav">
     <div onclick="showView('home')">
-      <a href="index.html" class="nav__logo">Maddie Ann</a>
+      <a href="index.html" class="nav__logo">Mind Of Maddie Ann</a>
     </div>
 
     <ul class="nav__links">
-      <li><a class="nav__link active" href="#" onclick="filterCat('all', this); return false;">All</a></li>
-      <li><a class="nav__link" href="#" onclick="filterCat('film', this); return false;">Film</a></li>
-      <li><a class="nav__link" href="#" onclick="filterCat('book', this); return false;">Books</a></li>
-      <li><a class="nav__link" href="#" onclick="filterCat('tv', this); return false;">TV</a></li>
+      <li><a class="nav__link active" href="#" onclick="renderCategoryPage('all'); return false;">All</a></li>
+
+      <li><a class="nav__link" href="#" onclick="renderCategoryPage('film'); return false;">Film</a></li>
+
+      <li><a class="nav__link" href="#" onclick="renderCategoryPage('book'); return false;">Books</a></li>
+
+      <li><a class="nav__link" href="#" onclick="renderCategoryPage('tv'); return false;">TV</a></li>
     </ul>
 
     <div class="nav__actions">
@@ -72,13 +75,14 @@
         <p class="hero__description">Thoughtful criticism and personal essays on film, literature, and television. </p>
       </div>
 
-      <!-- <div class="hero__right">
-        <div class="featured-card" onclick="openArticle(0)">
+      <div class="hero__right">
+        <div class="featured-card" onclick="openArticle(3)">
           <div class="featured-card__image">
-            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <!-- <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
               <circle cx="60" cy="60" r="50" stroke="#C8A84B" stroke-width="2" />
               <polygon points="45,35 90,60 45,85" fill="#C8A84B" />
-            </svg>
+            </svg> -->
+            <img src="path/to/featured-image.jpg" alt="Featured Image">
             <div class="featured-card__badge">Editor's Pick</div>
           </div>
           <span class="tag tag--film">Film</span>
@@ -89,7 +93,7 @@
           <h3 class="featured-card__title">Conclave</h3>
           <p class="featured-card__meta">Edward Berger · 2024 · Drama / Thriller</p>
         </div>
-      </div> -->
+      </div> 
     </section>
 
     <!-- Main two-column layout -->
@@ -122,11 +126,6 @@
       <aside class="main-layout__sidebar">
 
         <div class="sidebar__section">
-          <div class="sidebar__heading">Most Read</div>
-          <div id="sidebarMostRead"></div>
-        </div>
-
-        <div class="sidebar__section">
           <div class="sidebar__heading">Browse by Category</div>
           <div class="sidebar__category" onclick="filterCat('film', null)">
             <span class="sidebar__category-name" style="color: var(--color-tag-film-text);">🎬 Film</span>
@@ -153,6 +152,25 @@
     </div>
   </div>
 
+  <div class="view" id="view-category">
+
+    <section class="category-page">
+
+      <div class="category-page__header">
+        <p class="category-page__eyebrow" id="categoryEyebrow">
+          Archive
+        </p>
+
+        <h1 class="category-page__title" id="categoryTitle">
+          Film Reviews
+        </h1>
+      </div>
+
+      <div class="category-grid" id="categoryGrid"></div>
+
+    </section>
+
+  </div>
 
   <!-- ============================================================
      WRITE VIEW

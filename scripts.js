@@ -192,6 +192,41 @@ function renderFeed() {
   `).join('');
 }
 
+function renderFeatured() {
+  const latest = [...articles].sort((a, b) => b.id - a.id)[0];
+
+  const container = document.getElementById('featuredCard');
+
+  container.innerHTML = `
+    <div class="featured-card" onclick="openArticle(${latest.id})">
+
+      <div class="featured-card__image">
+        ${categoryIcons[latest.cat] || ''}
+
+        <div class="featured-card__badge">
+          Latest Review
+        </div>
+      </div>
+
+      <span class="tag tag--${latest.cat}">
+        ${latest.cat.toUpperCase()}
+      </span>
+
+      <div class="stars">
+        ${buildStarsHTML(latest.rating)}
+      </div>
+
+      <h3 class="featured-card__title">
+        ${latest.reviewtitle}
+      </h3>
+
+      <p class="featured-card__meta">
+        ${latest.creator} · ${latest.year} · ${latest.cat.toUpperCase()}
+      </p>
+
+    </div>
+  `;
+}
 
 // ---------------------------------------------------------------
 // RENDER SIDEBAR
@@ -312,9 +347,64 @@ function showView(name) {
   if (name !== 'article') window.scrollTo(0, 0);
 }
 
+function renderCategoryPage(cat) {
+
+  const grid = document.getElementById('categoryGrid');
+
+  const titles = {
+    all: 'All Reviews',
+    film: 'Film Reviews',
+    book: 'Book Reviews',
+    tv: 'TV Reviews'
+  };
+
+  document.getElementById('categoryTitle').textContent =
+    titles[cat];
+
+  let data = [...articles];
+
+  if (cat !== 'all') {
+    data = data.filter(a => a.cat === cat);
+  }
+
+  grid.innerHTML = data.map(article => `
+
+    <div class="category-card"
+         onclick="openArticle(${article.id})">
+
+      <div class="category-card__image">
+        ${categoryIcons[article.cat]}
+      </div>
+
+      <div class="category-card__content">
+
+        ${buildTagHTML(article.cat)}
+
+        <h2 class="category-card__title">
+          ${article.reviewtitle}
+        </h2>
+
+        <p class="category-card__excerpt">
+          ${article.excerpt}
+        </p>
+
+        <div class="category-card__meta">
+          ${article.author} · ${article.date}
+        </div>
+
+      </div>
+
+    </div>
+
+  `).join('');
+
+  showView('category');
+}
 
 // ---------------------------------------------------------------
 // INIT
 // ---------------------------------------------------------------
 renderFeed();
 renderSidebar();
+renderFeatured();
+
