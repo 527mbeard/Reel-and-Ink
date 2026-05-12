@@ -8,7 +8,7 @@
 // ---------------------------------------------------------------
 let currentRating = 0;
 let currentFilter = 'all';
-let currentSort   = 'newest';
+let currentSort = 'newest';
 
 
 // ---------------------------------------------------------------
@@ -118,7 +118,7 @@ function buildTagHTML(cat) {
   const map = {
     film: ['tag--film', 'Film'],
     book: ['tag--book', 'Book'],
-    tv:   ['tag--tv',   'TV']
+    tv: ['tag--tv', 'TV']
   };
   const [cls, label] = map[cat] || ['tag--film', 'Other'];
   return `<span class="tag ${cls}">${label}</span>`;
@@ -136,7 +136,7 @@ const categoryIcons = {
            <line x1="20" y1="33" x2="44" y2="33" stroke="#7ABB8A" stroke-width="1.5" opacity="0.5"/>
            <line x1="20" y1="41" x2="36" y2="41" stroke="#7ABB8A" stroke-width="1.5" opacity="0.5"/>
          </svg>`,
-  tv:   `<svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+  tv: `<svg width="70" height="70" viewBox="0 0 70 70" fill="none">
            <rect x="8" y="18" width="54" height="36" rx="3" stroke="#8A9ABB" stroke-width="2" opacity="0.5"/>
            <line x1="20" y1="54" x2="20" y2="62" stroke="#8A9ABB" stroke-width="2" opacity="0.5"/>
            <line x1="50" y1="54" x2="50" y2="62" stroke="#8A9ABB" stroke-width="2" opacity="0.5"/>
@@ -213,7 +213,7 @@ function renderSidebar() {
   // Category counts
   document.getElementById('countFilm').textContent = articles.filter(a => a.cat === 'film').length + ' reviews';
   document.getElementById('countBook').textContent = articles.filter(a => a.cat === 'book').length + ' reviews';
-  document.getElementById('countTv').textContent   = articles.filter(a => a.cat === 'tv').length   + ' reviews';
+  document.getElementById('countTv').textContent = articles.filter(a => a.cat === 'tv').length + ' reviews';
 }
 
 
@@ -222,12 +222,13 @@ function renderSidebar() {
 // ---------------------------------------------------------------
 function filterCat(cat, clickedEl) {
   currentFilter = cat;
-  // Remove active from all filter buttons
+
   document.querySelectorAll('.filter-bar__btn, .hero__cat-pill, .nav__link').forEach(el => {
     el.classList.remove('active');
   });
+
   if (clickedEl) clickedEl.classList.add('active');
-  showView('home');
+
   renderFeed();
 }
 
@@ -295,10 +296,10 @@ function setRating(n) {
 // ---------------------------------------------------------------
 function updateCharCount() {
   const count = document.getElementById('f-body').value.length;
-  const el    = document.getElementById('charCount');
+  const el = document.getElementById('charCount');
   const remaining = 200 - count;
-  el.textContent  = count.toLocaleString() + ' characters' + (remaining > 0 ? ` (${remaining} more to reach minimum)` : ' ✓');
-  el.style.color  = count >= 200 ? '#7ABB8A' : 'var(--color-text-muted)';
+  el.textContent = count.toLocaleString() + ' characters' + (remaining > 0 ? ` (${remaining} more to reach minimum)` : ' ✓');
+  el.style.color = count >= 200 ? '#7ABB8A' : 'var(--color-text-muted)';
 }
 
 
