@@ -1230,3 +1230,26 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+
+body.dark-mode {
+  --color-bg-primary: #0f0f12;
+  --color-bg-secondary: #17171c;
+  --color-bg-tertiary: #22222a;
+
+  --color-text-primary: #f2f2f2;
+  --color-text-muted: #a0a0aa;
+
+  --color-border: #2a2a33;
+
+  --color-accent: #D63384; /* keep your pink accent */
+  --color-accent-dark: #b82a6e;
+
+  /* soften category colors in dark mode */
+  --color-tag-film-bg: rgba(214, 51, 132, 0.15);
+  --color-tag-book-bg: rgba(138, 101, 220, 0.15);
+  --color-tag-tv-bg: rgba(90, 130, 220, 0.15);
+}
