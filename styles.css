@@ -357,7 +357,7 @@ body {
   background: transparent;
   border: 1px solid var(--color-border);
   color: var(--color-text-muted);
-  padding: 1rem 2rem;
+  padding: 0.7rem 1rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.15em;
@@ -1471,4 +1471,440 @@ button {
     color 0.35s ease,
     border-color 0.35s ease,
     box-shadow 0.35s ease;
+}
+
+
+/* ==================================================================================================================
+=========================================================
+=========================================================
+=========================================================
+==================================================================================================================
+=========================================================
+=========================================================
+   ABBOUUT PAGEEE
+========================================================
+=========================================================
+========================================================== */
+
+
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+  --color-bg-primary: #F7F4EE;
+  --color-bg-secondary: #ECE7DC;
+
+  --color-text-primary: #111111;
+  --color-text-secondary: #4B4B4B;
+  --color-text-muted: #7A746B;
+
+  --color-border: #D8D1C4;
+
+  --gold: #C8A84B;
+  --wine: #5B2333;
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body.dark-mode {
+
+  --color-bg-primary: #111111;
+  --color-bg-secondary: #1B1B1B;
+
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #C8C8C8;
+  --color-text-muted: #8E8E8E;
+
+  --color-border: #2D2D2D;
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+
+  font-family: var(--font-body);
+
+  transition: 0.3s ease;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.nav {
+
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 2rem;
+
+  background: rgba(247,244,238,0.85);
+
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+body.dark-mode .nav {
+  background: rgba(17,17,17,0.8);
+}
+
+.nav__logo {
+
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 900;
+
+  text-decoration: none;
+
+  color: var(--color-text-primary);
+}
+
+.nav__links {
+
+  display: flex;
+  gap: 2rem;
+
+  list-style: none;
+}
+
+.nav__link {
+
+  text-decoration: none;
+
+  color: var(--color-text-muted);
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  font-size: 0.8rem;
+
+  transition: 0.2s;
+}
+
+.nav__link:hover,
+.nav__link.active {
+
+  color: var(--color-text-primary);
+}
+
+.btn-ghost {
+
+  border: 1px solid var(--color-border);
+
+  background: transparent;
+
+  color: var(--color-text-primary);
+
+  padding: 0.7rem 1rem;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.about-hero {
+
+  padding: 7rem 8%;
+
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+
+  gap: 4rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-hero__eyebrow {
+
+  font-family: var(--font-mono);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.1em;
+
+  color: var(--gold);
+
+  margin-bottom: 1rem;
+}
+
+.about-hero__title {
+
+  font-family: var(--font-display);
+
+  font-size: clamp(3rem, 8vw, 6rem);
+
+  line-height: 0.95;
+
+  margin-bottom: 2rem;
+}
+
+.about-hero__intro {
+
+  max-width: 650px;
+
+  line-height: 1.9;
+
+  font-size: 1.1rem;
+
+  color: var(--color-text-secondary);
+}
+
+.about-hero__image {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-hero__portrait {
+
+  width: 320px;
+  height: 420px;
+
+  border-radius: 2rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(200,168,75,0.15),
+      rgba(91,35,51,0.15)
+    );
+
+  border: 1px solid var(--color-border);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: var(--font-display);
+
+  font-size: 7rem;
+  font-weight: 900;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.about-layout {
+
+  padding: 5rem 8%;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  gap: 5rem;
+}
+
+.about-section {
+
+  margin-bottom: 5rem;
+}
+
+.about-section__label {
+
+  font-family: var(--font-mono);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  color: var(--gold);
+
+  margin-bottom: 1rem;
+}
+
+.about-section h2 {
+
+  font-family: var(--font-display);
+
+  font-size: clamp(2rem,5vw,3.5rem);
+
+  margin-bottom: 2rem;
+}
+
+.about-section p {
+
+  line-height: 1.9;
+
+  color: var(--color-text-secondary);
+
+  margin-bottom: 1.5rem;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.about-grid {
+
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+
+  gap: 1.5rem;
+
+  margin-top: 2rem;
+}
+
+.about-card {
+
+  padding: 2rem;
+
+  border-radius: 1.5rem;
+
+  border: 1px solid var(--color-border);
+
+  background: var(--color-bg-secondary);
+
+  transition: 0.25s;
+}
+
+.about-card:hover {
+
+  transform: translateY(-4px);
+}
+
+.about-card h3 {
+
+  font-family: var(--font-display);
+
+  margin-bottom: 1rem;
+
+  font-size: 1.5rem;
+}
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.about-quote {
+
+  margin-top: 4rem;
+
+  padding-left: 2rem;
+
+  border-left: 3px solid var(--gold);
+}
+
+.about-quote p {
+
+  font-family: var(--font-display);
+
+  font-size: 2rem;
+
+  line-height: 1.4;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.about-sidebar {
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+}
+
+.sidebar-card {
+
+  padding: 2rem;
+
+  border-radius: 1.5rem;
+
+  border: 1px solid var(--color-border);
+
+  background: var(--color-bg-secondary);
+}
+
+.sidebar-card h3 {
+
+  font-family: var(--font-display);
+
+  margin-bottom: 1rem;
+}
+
+.sidebar-card ul {
+
+  list-style: none;
+}
+
+.sidebar-card li {
+
+  padding: 0.8rem 0;
+
+  border-bottom: 1px solid var(--color-border);
+
+  color: var(--color-text-secondary);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .nav__links {
+    display: none;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-layout {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-hero__portrait {
+
+    width: 100%;
+    height: 300px;
+  }
+
+  .about-quote p {
+    font-size: 1.5rem;
+  }
 }

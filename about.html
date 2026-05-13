@@ -1,73 +1,226 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <title>The Mind of Maddie Ann</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About the Author — Mind Of Maddie Ann</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
-  <nav class="nav">
-    <div onclick="showView('home')">
-      <a href="index.html" class="nav__logo">Mind Of Maddie Ann</a>
-    </div>
+<!-- NAV -->
 
-    <ul class="nav__links">
-      <li><a class="nav__link active" href="#" onclick="renderCategoryPage('all'); return false;">All</a></li>
-      <li><a class="nav__link" href="#" onclick="renderCategoryPage('film'); return false;">Film</a></li>
-      <li><a class="nav__link" href="#" onclick="renderCategoryPage('book'); return false;">Books</a></li>
-      <li><a class="nav__link" href="#" onclick="renderCategoryPage('tv'); return false;">TV</a></li>
-    </ul>
+<nav class="nav">
+    <a href="index.html" class="nav__logo">
+      Mind Of Maddie Ann
+    </a>
+    <!-- Mobile Menu Button -->
+    <button class="nav__toggle" onclick="toggleMenu()">
+      ☰
+    </button>
+    <!-- Navigation Links -->
+    <ul class="nav__links" id="navLinks">
+      <li>
+        <a class="nav__link active" href="#" onclick="renderCategoryPage('all'); return false;">
+          All
+        </a>
+      </li>
 
-    <div class="nav__actions">
-      <a href="about.html">
+      <li>
+        <a class="nav__link" href="#" onclick="renderCategoryPage('film'); return false;">
+          Film
+        </a>
+      </li>
+
+      <li>
+        <a class="nav__link" href="#" onclick="renderCategoryPage('book'); return false;">
+          Books
+        </a>
+      </li>
+
+      <li>
+        <a class="nav__link" href="#" onclick="renderCategoryPage('tv'); return false;">
+          TV
+        </a>
+      </li>
+
+      <li>
+        <a href="about.html">
         <button class="btn-primary">About the Author</button>
       </a>
-      <button class="btn-ghost" onclick="toggleDarkMode()">
-        Dark Mode
-      </button>
-    </div>
+      </li>
 
+      <li>
+        <button class="btn-ghost" onclick="toggleDarkMode()">
+          Dark Mode
+        </button>
+      </li>
+    </ul>
+  </nav>
 
+<!-- HERO -->
 
-  </nav> 
+<section class="about-hero">
 
+  <div>
 
-  <!-- ============================================================
-     TICKER
-     Add or remove .ticker__item spans to change the text
-     ============================================================  -->
-   <div class="ticker">
-    <div class="ticker__track">
-      <span class="ticker__item">Now Reading: Perfect Cover By Jennifer Lynn Barnes</span>
-      <span class="ticker__item">★★★★★</span>
-      <span class="ticker__item">Now Watching: The Rookie</span>
-      <span class="ticker__item">★★★★☆</span>
-      <span class="ticker__item">Now Viewing: The Devil Wears Prada 2</span>
-      <span class="ticker__item">★★★★☆</span>
-      <span class="ticker__item">Now Reading: Perfect Cover By Jennifer Lynn Barnes</span>
-      <span class="ticker__item">★★★★★</span>
-      <span class="ticker__item">Now Watching: The Rookie</span>
-      <span class="ticker__item">★★★★☆</span>
-      <span class="ticker__item">Now Viewing: The Devil Wears Prada 2</span>
-      <span class="ticker__item">★★★★☆</span>
-    </div>
+    <p class="about-hero__eyebrow">
+      Film • Books • Television
+    </p>
+
+    <h1 class="about-hero__title">
+      About the Author
+    </h1>
+
+    <p class="about-hero__intro">
+      Mind Of Maddie Ann is a cinematic editorial platform focused on thoughtful criticism, emotional storytelling, and cultural commentary across film, literature, and television.
+    </p>
+
   </div>
 
+  <div class="about-hero__image">
 
+    <div class="about-hero__portrait">
+      M
+    </div>
 
-  <script src="scripts.js"></script>
+  </div>
+
+</section>
+
+<!-- MAIN -->
+
+<main class="about-layout">
+
+  <section>
+
+    <div class="about-section">
+
+      <p class="about-section__label">
+        Who I Am
+      </p>
+
+      <h2>
+        Writing about stories that linger.
+      </h2>
+
+      <p>
+        I created Mind Of Maddie Ann as a space for long-form reviews and thoughtful media criticism. Rather than focusing only on ratings, I’m interested in atmosphere, emotion, performances, and the ideas stories leave behind.
+      </p>
+
+      <p>
+        The site blends cinematic design with literary-style criticism to create a more editorial reading experience.
+      </p>
+
+    </div>
+
+    <div class="about-section">
+
+      <p class="about-section__label">
+        What You'll Find Here
+      </p>
+
+      <div class="about-grid">
+
+        <div class="about-card">
+
+          <h3>Film Reviews</h3>
+
+          <p>
+            Cinematography, directing, performances, themes, and visual storytelling.
+          </p>
+
+        </div>
+
+        <div class="about-card">
+
+          <h3>TV Analysis</h3>
+
+          <p>
+            Character writing, season structure, and prestige television breakdowns.
+          </p>
+
+        </div>
+
+        <div class="about-card">
+
+          <h3>Book Criticism</h3>
+
+          <p>
+            Literary reviews centered on prose, emotion, and narrative voice.
+          </p>
+
+        </div>
+
+        <div class="about-card">
+
+          <h3>Editorial Essays</h3>
+
+          <p>
+            Commentary on storytelling, media culture, and entertainment trends.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="about-quote">
+
+      <p>
+        “Great criticism explains not just whether something works — but why it matters.”
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SIDEBAR -->
+
+  <aside class="about-sidebar">
+
+    <div class="sidebar-card">
+
+      <h3>Favorite Genres</h3>
+
+      <ul>
+        <li>Psychological Drama</li>
+        <li>Thrillers</li>
+        <li>Character Studies</li>
+        <li>Literary Fiction</li>
+        <li>Prestige Television</li>
+      </ul>
+
+    </div>
+
+    <div class="sidebar-card">
+
+      <h3>Current Favorites</h3>
+
+      <ul>
+        <li>The Bear</li>
+        <li>Severance</li>
+        <li>Past Lives</li>
+        <li>Intermezzo</li>
+        <li>Dune: Part Two</li>
+      </ul>
+
+    </div>
+
+  </aside>
+
+</main>
+
+<script src="scripts.js"></script>
+
 </body>
-
-</html> 
-
+</html>
