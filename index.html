@@ -18,32 +18,52 @@
 <body>
 
   <nav class="nav">
-    <div onclick="showView('home')">
-      <a href="index.html" class="nav__logo">Mind Of Maddie Ann</a>
-    </div>
+    <a href="index.html" class="nav__logo">
+      Mind Of Maddie Ann
+    </a>
+    <!-- Mobile Menu Button -->
+    <button class="nav__toggle" onclick="toggleMenu()">
+      ☰
+    </button>
+    <!-- Navigation Links -->
+    <ul class="nav__links" id="navLinks">
+      <li>
+        <a class="nav__link active" href="#" onclick="renderCategoryPage('all'); return false;">
+          All
+        </a>
+      </li>
 
-    <ul class="nav__links">
-      <li><a class="nav__link active" href="#" onclick="renderCategoryPage('all'); return false;">All</a></li>
+      <li>
+        <a class="nav__link" href="#" onclick="renderCategoryPage('film'); return false;">
+          Film
+        </a>
+      </li>
 
-      <li><a class="nav__link" href="#" onclick="renderCategoryPage('film'); return false;">Film</a></li>
+      <li>
+        <a class="nav__link" href="#" onclick="renderCategoryPage('book'); return false;">
+          Books
+        </a>
+      </li>
 
-      <li><a class="nav__link" href="#" onclick="renderCategoryPage('book'); return false;">Books</a></li>
+      <li>
+        <a class="nav__link" href="#" onclick="renderCategoryPage('tv'); return false;">
+          TV
+        </a>
+      </li>
 
-      <li><a class="nav__link" href="#" onclick="renderCategoryPage('tv'); return false;">TV</a></li>
-    </ul>
-
-    <div class="nav__actions">
-      <a href="about.html">
+      <li>
+        <a href="about.html">
         <button class="btn-primary">About the Author</button>
       </a>
-    </div>
+      </li>
 
-    <button class="btn-ghost" onclick="toggleDarkMode()">
-      Dark Mode
-    </button>
-
+      <li>
+        <button class="btn-ghost" onclick="toggleDarkMode()">
+          Dark Mode
+        </button>
+      </li>
+    </ul>
   </nav>
-
 
   <!-- ============================================================
      TICKER
@@ -76,17 +96,14 @@
     <section class="hero">
       <div class="hero__left">
         <p class="hero__eyebrow">The critic's corner</p>
-        <h1 class="hero__title">Stories that<br>move us. <em>Reviewed.</em></h1>
-        <p class="hero__description">Thoughtful criticism and personal essays on film, literature, and television. </p>
+        <h1 class="hero__title">Pop Culture Stories that<br>move us. <em>Reviewed.</em></h1>
+        <p class="hero__description">Thoughtful criticism and personal essays on film, literature, and television by an
+          aspiring seventeen year old critic. </p>
       </div>
 
       <div class="hero__right">
         <div class="featured-card" onclick="openArticle(3)">
           <div class="featured-card__image">
-            <!-- <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-              <circle cx="60" cy="60" r="50" stroke="#C8A84B" stroke-width="2" />
-              <polygon points="45,35 90,60 45,85" fill="#C8A84B" />
-            </svg> -->
             <img src="path/to/featured-image.jpg" alt="Featured Image">
             <div class="featured-card__badge">Editor's Pick</div>
           </div>
@@ -277,8 +294,12 @@
   </div>
 
 
-  <!-- Toast notification -->
-  <div class="toast" id="toast">Review Published!</div>
+  <!-- Toast notification
+  <div class="toast" id="toast">Review Published!</div> -->
+
+  <div class="footer">
+    <h1> Website Created by Maddie Ann and Claude AI</h1>
+  </div>
 
   <script src="scripts.js"></script>
 </body>

@@ -8,67 +8,70 @@ mageenta #D63384 */
    ============================================================ */
 
 :root {
-  
-/* BACKGROUNDS */
---color-bg-primary: #F5EEEE;
---color-bg-secondary: #FFF9F9;
---color-bg-tertiary: #E7D6D8;
 
-/* TEXT */
---color-text-primary: #2A1116;
---color-text-muted: #73565D;
+  /* BACKGROUNDS */
+  --color-bg-primary: #F5EEEE;
+  --color-bg-secondary: #FFF9F9;
+  --color-bg-tertiary: #E7D6D8;
 
-/* MAIN WINE COLORS */
---color-accent: #8E1F2D;
---color-accent-dark: #6E1823;
+  /* TEXT */
+  --color-text-primary: #2A1116;
+  --color-text-muted: #73565D;
 
---color-wine: #8E1F2D;
---color-wine-dark: #5E111B;
---color-wine-light: #B14558;
+  /* MAIN WINE COLORS */
+  --color-accent: #8E1F2D;
+  --color-accent-dark: #6E1823;
 
-/* SOFT NEON PINK */
---color-highlight: #F6A3B4;
+  --color-wine: #8E1F2D;
+  --color-wine-dark: #5E111B;
+  --color-wine-light: #B14558;
 
-/* GLOW */
---color-glow: rgba(246, 163, 180, 0.35);
+  /* SOFT NEON PINK */
+  --color-highlight: #F6A3B4;
 
-/* BORDERS */
---color-border: #D7C0C4;
+  /* GLOW */
+  --color-glow: rgba(246, 163, 180, 0.35);
 
-/* CATEGORY COLORS */
---color-tag-film-bg: rgba(142, 31, 45, 0.10);
---color-tag-film-text: #8E1F2D;
---color-tag-film-border: rgba(142, 31, 45, 0.2);
+  /* BORDERS */
+  --color-border: #D7C0C4;
 
---color-tag-book-bg: rgba(177, 69, 88, 0.10);
---color-tag-book-text: #9B4052;
---color-tag-book-border: rgba(177, 69, 88, 0.2);
+  /* CATEGORY COLORS */
+  --color-tag-film-bg: rgba(142, 31, 45, 0.10);
+  --color-tag-film-text: #8E1F2D;
+  --color-tag-film-border: rgba(142, 31, 45, 0.2);
 
---color-tag-tv-bg: rgba(116, 77, 98, 0.10);
---color-tag-tv-text: #744D62;
---color-tag-tv-border: rgba(116, 77, 98, 0.2);
+  --color-tag-book-bg: rgba(177, 69, 88, 0.10);
+  --color-tag-book-text: #9B4052;
+  --color-tag-book-border: rgba(177, 69, 88, 0.2);
+
+  --color-tag-tv-bg: rgba(116, 77, 98, 0.10);
+  --color-tag-tv-text: #744D62;
+  --color-tag-tv-border: rgba(116, 77, 98, 0.2);
 
 
   /* Fonts — swap these to change the whole site's feel */
-  --font-display: 'Playfair Display', serif;  /* headings */
-  --font-body:    'Libre Baskerville', serif;  /* body text */
-  --font-mono:    'JetBrains Mono', monospace; /* labels, tags, UI */
+  --font-display: 'Playfair Display', serif;
+  /* headings */
+  --font-body: 'Libre Baskerville', serif;
+  /* body text */
+  --font-mono: 'JetBrains Mono', monospace;
+  /* labels, tags, UI */
 
   /* Spacing scale */
-  --space-xs:  0.5rem;
-  --space-sm:  1rem;
-  --space-md:  1.5rem;
-  --space-lg:  2.5rem;
-  --space-xl:  4rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
 
   /* Font sizes */
-  --text-xs:   0.62rem;
-  --text-sm:   0.72rem;
+  --text-xs: 0.62rem;
+  --text-sm: 0.72rem;
   --text-base: 1rem;
-  --text-lg:   1.25rem;
-  --text-xl:   1.5rem;
-  --text-2xl:  2rem;
-  --text-3xl:  2.5rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
 }
 
 
@@ -76,7 +79,9 @@ mageenta #D63384 */
    2. RESET & BASE
    ============================================================ */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -125,25 +130,34 @@ body {
 }
 
 /* Muted text */
-.text-muted { color: var(--color-text-muted); }
+.text-muted {
+  color: var(--color-text-muted);
+}
 
 /* Accent colored text */
-.text-accent { color: var(--color-accent); }
+.text-accent {
+  color: var(--color-accent);
+}
 
 
 /* ============================================================
    4. VIEW SYSTEM — controls which page is visible
    ============================================================ */
 
-.view { display: none; }
-.view.active { display: block; }
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
 
 
 /* ============================================================
    5. NAVIGATION
    ============================================================ */
 
-.nav {
+/* .nav {
   position: sticky;
   top: 0;
   z-index: 200;
@@ -156,7 +170,6 @@ body {
   height: 64px;
 }
 
-/* Site logo */
 .nav__logo {
   font-family: var(--font-display);
   font-size: var(--text-xl);
@@ -167,7 +180,6 @@ body {
   text-decoration: none;
 } 
 
-/* Nav link list */
 .nav__links {
   display: flex;
   gap: 2rem;
@@ -190,11 +202,125 @@ body {
   color: var(--color-text-primary);
 }
 
-/* Right side of nav */
 .nav__actions {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
+}  */
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  height: 72px;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Logo */
+.nav__logo {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 900;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+/* Links */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  list-style: none;
+}
+
+/* Individual Link */
+.nav__link {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: var(--color-text-muted);
+  text-decoration: none;
+
+  transition: 0.2s;
+}
+
+.nav__link:hover,
+.nav__link.active {
+  color: var(--color-text-primary);
+}
+
+/* Hamburger Button */
+.nav__toggle {
+  display: none;
+
+  background: none;
+  border: none;
+
+  color: var(--color-text-primary);
+
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .nav {
+    padding: 0 1.25rem;
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+
+  .nav__links {
+    position: absolute;
+
+    top: 72px;
+    left: 0;
+    right: 0;
+
+    background: var(--color-bg-primary);
+
+    border-bottom: 1px solid var(--color-border);
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 1.5rem;
+
+    gap: 1.25rem;
+
+    display: none;
+  }
+
+  .nav__links.active {
+    display: flex;
+  }
+
+  .nav__link {
+    font-size: 0.9rem;
+  }
 }
 
 
@@ -346,8 +472,13 @@ body {
 }
 
 @keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 
@@ -1095,7 +1226,7 @@ body {
 /* ============================================================
    19. TOAST NOTIFICATION
    ============================================================ */
-
+/* 
 .toast {
   position: fixed;
   bottom: 2rem;
@@ -1117,34 +1248,73 @@ body {
 .toast.active {
   transform: translateY(0);
   opacity: 1;
-}
+} */
 
 
 /* ============================================================
-   20. RESPONSIVE — mobile adjustments
+   20. FOOTER 
+   ============================================================ */
+
+.footer {
+  background-color: #5E111B;
+  color: white;
+  text-align: center;
+  padding: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   21. RESPONSIVE — mobile adjustments
    ============================================================ */
 
 @media (max-width: 900px) {
-  .nav { padding: 0 1.5rem; }
+  .nav {
+    padding: 0 1.5rem;
+  }
 
   /* Stack the hero vertically, hide right panel */
-  .hero { grid-template-columns: 1fr; }
-  .hero__right { display: none; }
-  .hero__left { padding: var(--space-xl) var(--space-lg); }
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__right {
+    display: none;
+  }
+
+  .hero__left {
+    padding: var(--space-xl) var(--space-lg);
+  }
 
   /* Single-column layout */
-  .main-layout { grid-template-columns: 1fr; }
-  .main-layout__sidebar { display: none; }
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .main-layout__sidebar {
+    display: none;
+  }
 
   .article-list,
-  .filter-bar { padding-left: var(--space-md); padding-right: var(--space-md); }
+  .filter-bar {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
 
   /* Stack card thumbnail below text */
-  .article-card { grid-template-columns: 1fr; }
-  .article-card__image { height: 180px; }
+  .article-card {
+    grid-template-columns: 1fr;
+  }
+
+  .article-card__image {
+    height: 180px;
+  }
 
   /* Single-column form */
-  .form-grid { grid-template-columns: 1fr; }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .category-page {
@@ -1241,49 +1411,49 @@ body {
 }
 
 /* ============================================================
-   DARK MODE
+   22. DARK MODE
    ============================================================ */
 
 body.dark-mode {
 
-/* BACKGROUNDS */
---color-bg-primary: #120508;
---color-bg-secondary: #1B0A0E;
---color-bg-tertiary: #2A1218;
+  /* BACKGROUNDS */
+  --color-bg-primary: #120508;
+  --color-bg-secondary: #1B0A0E;
+  --color-bg-tertiary: #2A1218;
 
-/* TEXT */
---color-text-primary: #FFECEF;
---color-text-muted: #B798A0;
+  /* TEXT */
+  --color-text-primary: #FFECEF;
+  --color-text-muted: #B798A0;
 
-/* MAIN WINE */
---color-accent: #B52A3F;
---color-accent-dark: #8E1F2D;
+  /* MAIN WINE */
+  --color-accent: #B52A3F;
+  --color-accent-dark: #8E1F2D;
 
---color-wine: #B52A3F;
---color-wine-dark: #731322;
---color-wine-light: #D75A71;
+  --color-wine: #B52A3F;
+  --color-wine-dark: #731322;
+  --color-wine-light: #D75A71;
 
-/* NEON PINK HIGHLIGHT */
---color-highlight: #FFB2C2;
+  /* NEON PINK HIGHLIGHT */
+  --color-highlight: #FFB2C2;
 
-/* GLOW */
---color-glow: rgba(255, 178, 194, 0.45);
+  /* GLOW */
+  --color-glow: rgba(255, 178, 194, 0.45);
 
-/* BORDERS */
---color-border: #3B1820;
+  /* BORDERS */
+  --color-border: #3B1820;
 
-/* CATEGORY COLORS */
---color-tag-film-bg: rgba(181, 42, 63, 0.16);
---color-tag-film-text: #FFB6C5;
---color-tag-film-border: rgba(181, 42, 63, 0.25);
+  /* CATEGORY COLORS */
+  --color-tag-film-bg: rgba(181, 42, 63, 0.16);
+  --color-tag-film-text: #FFB6C5;
+  --color-tag-film-border: rgba(181, 42, 63, 0.25);
 
---color-tag-book-bg: rgba(215, 90, 113, 0.16);
---color-tag-book-text: #FFC4CF;
---color-tag-book-border: rgba(215, 90, 113, 0.25);
+  --color-tag-book-bg: rgba(215, 90, 113, 0.16);
+  --color-tag-book-text: #FFC4CF;
+  --color-tag-book-border: rgba(215, 90, 113, 0.25);
 
---color-tag-tv-bg: rgba(133, 95, 122, 0.16);
---color-tag-tv-text: #E1C5D5;
---color-tag-tv-border: rgba(133, 95, 122, 0.25);
+  --color-tag-tv-bg: rgba(133, 95, 122, 0.16);
+  --color-tag-tv-text: #E1C5D5;
+  --color-tag-tv-border: rgba(133, 95, 122, 0.25);
 
 }
 

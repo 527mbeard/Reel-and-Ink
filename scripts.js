@@ -21,7 +21,7 @@ let currentSort = 'newest';
 const articles = [
   {
     id: 0, cat: 'film', rating: 5,
-    worktitle: 'Conclave', creator: 'Edward Berger', year: '2024',
+    worktitle: 'Daredevil: Born Again', streaming: 'Edward Berger', year: '2024',
     reviewtitle: 'God is in the Doubt',
     subtitle: `Berger's papal thriller is the most gripping film about institutional power in years.`,
     excerpt: 'Conclave works on every level it attempts. As a thriller, it is gripping; as a meditation on faith, it is searching; as a portrait of institutional rot, it is unsparing.',
@@ -34,7 +34,7 @@ const articles = [
   },
   {
     id: 1, cat: 'book', rating: 5,
-    worktitle: 'James', creator: 'Percival Everett', year: '2024',
+    worktitle: 'James', streaming: 'Percival Everett', year: '2024',
     reviewtitle: 'The Slave Who Sees Everything',
     subtitle: `Everett's reimagining of Huckleberry Finn is a masterpiece of controlled fury.`,
     excerpt: 'James does not ask you to enjoy it. It asks you to reckon. Percival Everett takes one of American literature\'s most beloved adventures and recenters it on the enslaved man at its margins.',
@@ -47,7 +47,7 @@ const articles = [
   },
   {
     id: 2, cat: 'tv', rating: 4,
-    worktitle: 'Severance Season 2', creator: 'Ben Stiller / Dan Erickson', year: '2025',
+    worktitle: 'Severance Season 2', streaming: 'Ben Stiller / Dan Erickson', year: '2025',
     reviewtitle: 'The Labyrinth Deepens',
     subtitle: 'Season two refuses easy answers — and is better for it.',
     excerpt: 'Three years is a long time to wait for answers you don\'t fully get. Severance\'s second season is more interested in expanding its map than marking any X.',
@@ -60,7 +60,7 @@ const articles = [
   },
   {
     id: 3, cat: 'film', rating: 4,
-    worktitle: 'The Substance', creator: 'Coralie Fargeat', year: '2024',
+    worktitle: 'The Substance', streaming: 'Coralie Fargeat', year: '2024',
     reviewtitle: 'The Body Revolts',
     subtitle: 'Fargeat\'s body-horror provocation is exhausting, excessive, and exactly right.',
     excerpt: 'The Substance is not a subtle film. Coralie Fargeat is not a subtle director. Her follow-up to Revenge is louder, longer, more grotesque, and more genuinely disturbing in its implications than almost anything else in recent memory.',
@@ -72,7 +72,7 @@ const articles = [
   },
   {
     id: 4, cat: 'book', rating: 4,
-    worktitle: 'Intermezzo', creator: 'Sally Rooney', year: '2024',
+    worktitle: 'Intermezzo', streaming: 'Sally Rooney', year: '2024',
     reviewtitle: 'Rooney Grows Up',
     subtitle: 'Her fourth novel is her warmest and her most structurally daring.',
     excerpt: 'Sally Rooney\'s detractors have always had a point. Intermezzo doesn\'t silence them, but it does something more interesting: it makes you care so much you stop listening to them.',
@@ -85,7 +85,7 @@ const articles = [
   },
   {
     id: 5, cat: 'tv', rating: 5,
-    worktitle: 'The Bear — Season 3', creator: 'Christopher Storer', year: '2024',
+    worktitle: 'The Bear — Season 3', streaming: 'Christopher Storer', year: '2024',
     reviewtitle: 'Everything Is at Stake',
     subtitle: 'Divisive on release, essential in retrospect.',
     excerpt: 'Season three of The Bear was called too slow, too literary, too in love with its own misery. These criticisms are not wrong. They are also beside the point.',
@@ -97,6 +97,18 @@ const articles = [
     author: 'R. Diaz', date: 'August 8, 2024', reads: 2600
   }
 ];
+
+
+// ---------------------------------------------------------------
+// NAV RESPONSIVE
+// ---------------------------------------------------------------
+
+function toggleMenu() {
+  document
+    .getElementById('navLinks')
+    .classList
+    .toggle('active');
+}
 
 
 // ---------------------------------------------------------------
@@ -221,7 +233,7 @@ function renderFeatured() {
       </h3>
 
       <p class="featured-card__meta">
-        ${latest.creator} · ${latest.year} · ${latest.cat.toUpperCase()}
+        ${latest.streaming} · ${latest.year} · ${latest.cat.toUpperCase()}
       </p>
 
     </div>
@@ -282,7 +294,7 @@ function openArticle(id) {
 
   article.reads++; // increment read count
 
-  const workMeta = [article.worktitle, article.creator, article.year].filter(Boolean).join(' · ');
+  const workMeta = [article.worktitle, article.streaming, article.year].filter(Boolean).join(' · ');
 
   document.getElementById('articleDetail').innerHTML = `
     <div class="article-page">
