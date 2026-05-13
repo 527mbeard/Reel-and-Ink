@@ -1,1 +1,2 @@
-# Reel-and-Ink
+# The Mind of Maddie Ann
+Hi, my name is Maddia Ann and this is my review website where I am going to be posting reviews of movies, tv shows and books. For more information please go follow my instagram page @mindofmaddieann !!
